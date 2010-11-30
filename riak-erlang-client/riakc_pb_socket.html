@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="latin1" />
+    <title>riakc_pb_socket (riak-erlang-client) -  - erldocs.com (Erlang Documentation)</title>
+    <link type="text/css" rel="stylesheet" href="../erldocs.css" />
+  </head>
+  <body>
+
+    <div id="sidebar" class="inactive">
+      <input type="text" id="search" autocomplete="off"
+             placeholder="press TAB to search" />
+      <ul id="results"> </ul>
+    </div>
+
+    <div id="content">
+      <div style="margin:0px; padding:10px 20px;">
+        
+
+<h1>riakc_pb_socket</h1>
+<h2 class="modsummary" />
+<div class="description">
+</div>
+<div class="functions"><h4>Functions</h4><hr  />
+<div class="function">
+<h3 id="default_timeout/1">default_timeout(OpTimeout) -&gt; timeout()</h3>
+
+
+<div class="description"><span id="default_timeout-1"> </span>
+
+<p>Return the default timeout for an operation if none is provided.
+       Falls back to the default timeout.</p>
+</div></div>
+<div class="function">
+<h3 id="delete/3">delete(Pid, Bucket, Key) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="delete-3"> </span>
+
+<p>Delete the key/value</p>
+</div></div>
+<div class="function">
+<h3 id="delete/4">delete(Pid, Bucket, Key, Timeout) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="delete-4"> </span>
+
+<p>Delete the key/value specifying timeout</p>
+</div></div>
+<div class="function">
+<h3 id="delete/5">delete(Pid, Bucket, Key, Options, Timeout) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="delete-5"> </span>
+
+<p>Delete the key/value with options and timeout
+       [{rw,2}] sets rw=2</p>
+</div></div>
+<div class="function">
+<h3 id="get/3">get(Pid, Bucket, Key) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="get-3"> </span>
+
+<p>Get bucket/key from the server
+       Will return {error, notfound} if the key is not on the server</p>
+</div></div>
+<div class="function">
+<h3 id="get/4">get(Pid, Bucket, Key, Timeout) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="get-4"> </span>
+
+<p>Get bucket/key from the server specifying timeout
+       Will return {error, notfound} if the key is not on the server</p>
+</div></div>
+<div class="function">
+<h3 id="get/5">get(Pid, Bucket, Key, Options, Timeout) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="get-5"> </span>
+
+<p>Get bucket/key from the server supplying options and timeout
+       [{r, 1}] would set r=1 for the request</p>
+</div></div>
+<div class="function">
+<h3 id="get_bucket/2">get_bucket(Pid, Bucket) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="get_bucket-2"> </span>
+
+<p>Get bucket properties</p>
+</div></div>
+<div class="function">
+<h3 id="get_bucket/3">get_bucket(Pid, Bucket, Timeout) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="get_bucket-3"> </span>
+
+<p>Get bucket properties specifying a timeout</p>
+</div></div>
+<div class="function">
+<h3 id="get_client_id/1">get_client_id(Pid) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="get_client_id-1"> </span>
+
+<p>Get the client id for this connection</p>
+</div></div>
+<div class="function">
+<h3 id="get_client_id/2">get_client_id(Pid, Timeout) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="get_client_id-2"> </span>
+
+<p>Get the client id for this connection specifying timeout</p>
+</div></div>
+<div class="function">
+<h3 id="get_server_info/1">get_server_info(Pid) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="get_server_info-1"> </span>
+
+<p>Get the server information for this connection</p>
+</div></div>
+<div class="function">
+<h3 id="get_server_info/2">get_server_info(Pid, Timeout) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="get_server_info-2"> </span>
+
+<p>Get the server information for this connection specifying timeout</p>
+</div></div>
+<div class="function">
+<h3 id="is_connected/1">is_connected(Pid) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="is_connected-1"> </span>
+
+<p>Return true if connected to the remote server and {false, [{Reason,integer()}]}
+       with a list of failed connect reasons</p>
+</div></div>
+<div class="function">
+<h3 id="is_connected/2">is_connected(Pid, Timeout) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="is_connected-2"> </span>
+
+<p>See is_connected/1 with gen_server timeout</p>
+</div></div>
+<div class="function">
+<h3 id="list_buckets/1">list_buckets(Pid) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="list_buckets-1"> </span>
+
+<p>List all buckets on the server</p>
+</div></div>
+<div class="function">
+<h3 id="list_buckets/2">list_buckets(Pid, Timeout) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="list_buckets-2"> </span>
+
+<p>List all buckets on the server specifying timeout</p>
+</div></div>
+<div class="function">
+<h3 id="list_keys/2">list_keys(Pid, Bucket) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="list_keys-2"> </span>
+
+<p>List all keys in a bucket</p>
+</div></div>
+<div class="function">
+<h3 id="list_keys/3">list_keys(Pid, Bucket, Timeout) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="list_keys-3"> </span>
+
+<p>List all keys in a bucket specifying timeout</p>
+</div></div>
+<div class="function">
+<h3 id="mapred/1">mapred(Pid::pid(), Inputs::list(), Query::[mapred_queryterm() (see module riak_kv_mapred_query)]) -&gt; {ok, mapred_result() (see module riak_kv_mapred_query)} | {error, {bad_qterm, mapred_queryterm() (see module riak_kv_mapred_query)}} | {error, timeout} | {error, Err::term()}</h3>
+
+
+<div class="description"><span id="mapred-3"> </span>
+
+<p>Perform a map/reduce job across the cluster.
+       See the map/reduce documentation for explanation of behavior.</p>
+</div></div>
+<div class="function">
+<h3 id="mapred/1-1">mapred(Pid::pid(), Inputs::list(), Query::[mapred_queryterm() (see module riak_kv_mapred_query)], TimeoutMillisecs::integer() | infinity) -&gt; {ok, mapred_result() (see module riak_kv_mapred_query)} | {error, timeout} | {error, Err::term()}</h3>
+
+
+<div class="description"><span id="mapred-4"> </span>
+
+<p>Perform a map/reduce job across the cluster.
+       See the map/reduce documentation for explanation of behavior.</p>
+</div></div>
+<div class="function">
+<h3 id="mapred_bucket/1">mapred_bucket(Pid::pid(), Bucket::bucket(), Query::[mapred_queryterm() (see module riak_kv_mapred_query)]) -&gt; {ok, {ReqId::term(), MR_FSM_PID::pid()}} | {error, Err::term()}</h3>
+
+
+<div class="description"><span id="mapred_bucket-3"> </span>
+
+<p>Perform a map/reduce job against a bucket across the cluster.
+       See the map/reduce documentation for explanation of behavior.</p>
+</div></div>
+<div class="function">
+<h3 id="mapred_bucket/1-1">mapred_bucket(Pid::pid(), Bucket::bucket(), Query::[mapred_queryterm() (see module riak_kv_mapred_query)], TimeoutMillisecs::integer() | infinity) -&gt; {ok, {ReqId::term(), MR_FSM_PID::pid()}} | {error, Err::term()}</h3>
+
+
+<div class="description"><span id="mapred_bucket-4"> </span>
+
+<p>Perform a map/reduce job against a bucket with a timeout
+       across the cluster.
+       See the map/reduce documentation for explanation of behavior.</p>
+</div></div>
+<div class="function">
+<h3 id="mapred_bucket_stream/1">mapred_bucket_stream(Pid::pid(), Bucket::bucket(), Query::[mapred_queryterm() (see module riak_kv_mapred_query)], ClientPid::pid(), TimeoutMillisecs::integer() | infinity) -&gt; {ok, {ReqId::term(), MR_FSM_PID::pid()}} | {error, Err::term()}</h3>
+
+
+<div class="description"><span id="mapred_bucket_stream-5"> </span>
+
+<p>Perform a streaming map/reduce job against a bucket with a timeout
+       across the cluster.
+       See the map/reduce documentation for explanation of behavior.</p>
+</div></div>
+<div class="function">
+<h3 id="mapred_stream/1">mapred_stream(Pid::pid(), Inputs::list(), Query::[mapred_queryterm() (see module riak_kv_mapred_query)], ClientPid::pid()) -&gt; {ok, {ReqId::term(), MR_FSM_PID::pid()}} | {error, Err::term()}</h3>
+
+
+<div class="description"><span id="mapred_stream-4"> </span>
+
+<p>Perform a streaming map/reduce job across the cluster sending results
+       to ClientPid.
+       See the map/reduce documentation for explanation of behavior.</p>
+</div></div>
+<div class="function">
+<h3 id="mapred_stream/1-1">mapred_stream(Pid::pid(), Inputs::list(), Query::[mapred_queryterm() (see module riak_kv_mapred_query)], ClientPid::pid(), TimeoutMillisecs::integer() | infinity) -&gt; {ok, {ReqId::term(), MR_FSM_PID::pid()}} | {error, Err::term()}</h3>
+
+
+<div class="description"><span id="mapred_stream-5"> </span>
+
+<p>Perform a streaming map/reduce job with a timeout across the cluster.
+       sending results to ClientPid.
+       See the map/reduce documentation for explanation of behavior.</p>
+</div></div>
+<div class="function">
+<h3 id="ping/1">ping(Pid) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="ping-1"> </span>
+
+<p>Ping the server</p>
+</div></div>
+<div class="function">
+<h3 id="ping/2">ping(Pid, Timeout) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="ping-2"> </span>
+
+<p>Ping the server specifying timeout</p>
+</div></div>
+<div class="function">
+<h3 id="put/2">put(Pid, Obj) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="put-2"> </span>
+
+<p>Put the metadata/value in the object under bucket/key</p>
+</div></div>
+<div class="function">
+<h3 id="put/3">put(Pid, Obj, Timeout) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="put-3"> </span>
+
+<p>Put the metadata/value in the object under bucket/key</p>
+</div></div>
+<div class="function">
+<h3 id="put/4">put(Pid, Obj, Options, Timeout) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="put-4"> </span>
+
+<p>Put the metadata/value in the object under bucket/key with options and timeout
+       [{w,2}] sets w=2,
+       [{dw,1}] set dw=1,
+       [{return_body, true}] returns the updated metadata/value
+       Put throws siblings if the riakc_obj contains siblings
+       that have not been resolved by calling select_sibling/2 or
+       update_value/2 and update_metadata/2.</p>
+</div></div>
+<div class="function">
+<h3 id="search/1">search(Pid::rhc(), Bucket::bucket(), SearchQuery::string()) -&gt; {ok, [phase_result() (see module rhc_mapred)]} | {error, term()}</h3>
+
+
+<div class="description"><span id="search-3"> </span>
+
+<p>Execute a search query. This command will return an error
+       unless executed against a Riak Search cluster.</p>
+</div></div>
+<div class="function">
+<h3 id="search/1-1">search(Pid::rhc(), Bucket::bucket(), SearchQuery::string(), MRQuery::[query_part() (see module rhc_mapred)], Timeout::integer()) -&gt; {ok, [phase_result() (see module rhc_mapred)]} | {error, term()}</h3>
+
+
+<div class="description"><span id="search-5"> </span>
+
+<p>Execute a search query and feed the results into a map/reduce
+       query. See <a href="rhc_mapred.html#encode_mapred-2" class="seealso">rhc_mapred:encode_mapred/2</a> for details of
+       the allowed formats for <code>MRQuery</code>. This command will return an error
+       unless executed against a Riak Search cluster.</p>
+</div></div>
+<div class="function">
+<h3 id="set_bucket/3">set_bucket(Pid, Bucket, BucketProps) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="set_bucket-3"> </span>
+
+<p>Set bucket properties</p>
+</div></div>
+<div class="function">
+<h3 id="set_bucket/4">set_bucket(Pid, Bucket, BucketProps, Timeout) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="set_bucket-4"> </span>
+
+<p>Set bucket properties specifying a timeout</p>
+</div></div>
+<div class="function">
+<h3 id="set_client_id/2">set_client_id(Pid, ClientId) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="set_client_id-2"> </span>
+
+<p>Set the client id for this connection</p>
+</div></div>
+<div class="function">
+<h3 id="set_client_id/3">set_client_id(Pid, ClientId, Timeout) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="set_client_id-3"> </span>
+
+<p>Set the client id for this connection specifying timeout</p>
+</div></div>
+<div class="function">
+<h3 id="set_options/2">set_options(Pid, Options) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="set_options-2"> </span>
+
+<p>Change the options for this socket.  Allows you to connect with one
+       set of optionsthen run with another (e.g. connect with no options to
+       make sure the server is there, then enable queue_if_disconnected)</p>
+</div></div>
+<div class="function">
+<h3 id="set_options/3">set_options(Pid, Options, Timeout) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="set_options-3"> </span>
+
+<p>set_options/2 with a gen_server timeout</p>
+</div></div>
+<div class="function">
+<h3 id="start/2">start(Address, Port) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="start-2"> </span>
+
+<p>Create a process to talk with the riak server on Address:Port
+       Client id will be assigned by the server.</p>
+</div></div>
+<div class="function">
+<h3 id="start/3">start(Address, Port, Options) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="start-3"> </span>
+
+<p>Create a process to talk with the riak server on Address:Port with Options
+      See start_link/3.</p>
+</div></div>
+<div class="function">
+<h3 id="start_link/2">start_link(Address, Port) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="start_link-2"> </span>
+
+<p>Create a linked process to talk with the riak server on Address:Port
+       Client id will be assigned by the server.</p>
+</div></div>
+<div class="function">
+<h3 id="start_link/3">start_link(Address, Port, Options) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="start_link-3"> </span>
+
+<p>Create a linked process to talk with the riak server on Address:Port with Options
+       Client id will be assigned by the server.
+       Options:
+         auto_reconnect automatically try and reconnenct the socket on dropped socket
+           or timeout.
+         queue_if_disconnected adds requests to the queue when it is disconnected
+           rather than return {error, disconnected}.  If the server comes back the
+           request will be submitted if the timeout has not expired.  Implies
+           {auto_reconnect, true}.
+ </p>
+</div></div>
+<div class="function">
+<h3 id="stop/1">stop(Pid) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="stop-1"> </span>
+
+<p>Disconnect the socket and stop the process</p>
+</div></div>
+<div class="function">
+<h3 id="stream_list_keys/2">stream_list_keys(Pid, Bucket) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="stream_list_keys-2"> </span>
+
+<p>Stream list of keys in the bucket to the calling process.  The
+       process receives these messages.
+         {ReqId, {keys, [key()]}}
+         {ReqId, done}</p>
+</div></div>
+<div class="function">
+<h3 id="stream_list_keys/3">stream_list_keys(Pid, Bucket, Timeout) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="stream_list_keys-3"> </span>
+
+<p>Stream list of keys in the bucket to the calling process specifying timeout.
+       The process receives these messages.
+         {ReqId, {keys, [key()]}}
+         {ReqId, done}</p>
+</div></div></div>
+
+<authors>
+<aname> </aname>
+<email> </email></authors>
+      </div>
+      <div id="funwrapper">
+        <a id="viewfuns">View Functions</a>
+        <ul id="funs"><li><a href="#default_timeout/1">default_timeout/1</a></li><li><a href="#delete/3">delete/3</a></li><li><a href="#delete/4">delete/4</a></li><li><a href="#delete/5">delete/5</a></li><li><a href="#get/3">get/3</a></li><li><a href="#get/4">get/4</a></li><li><a href="#get/5">get/5</a></li><li><a href="#get_bucket/2">get_bucket/2</a></li><li><a href="#get_bucket/3">get_bucket/3</a></li><li><a href="#get_client_id/1">get_client_id/1</a></li><li><a href="#get_client_id/2">get_client_id/2</a></li><li><a href="#get_server_info/1">get_server_info/1</a></li><li><a href="#get_server_info/2">get_server_info/2</a></li><li><a href="#is_connected/1">is_connected/1</a></li><li><a href="#is_connected/2">is_connected/2</a></li><li><a href="#list_buckets/1">list_buckets/1</a></li><li><a href="#list_buckets/2">list_buckets/2</a></li><li><a href="#list_keys/2">list_keys/2</a></li><li><a href="#list_keys/3">list_keys/3</a></li><li><a href="#mapred/1">mapred/1</a></li><li><a href="#mapred/1-1">mapred/1-1</a></li><li><a href="#mapred_bucket/1">mapred_bucket/1</a></li><li><a href="#mapred_bucket/1-1">mapred_bucket/1-1</a></li><li><a href="#mapred_bucket_stream/1">mapred_bucket_stream/1</a></li><li><a href="#mapred_stream/1">mapred_stream/1</a></li><li><a href="#mapred_stream/1-1">mapred_stream/1-1</a></li><li><a href="#ping/1">ping/1</a></li><li><a href="#ping/2">ping/2</a></li><li><a href="#put/2">put/2</a></li><li><a href="#put/3">put/3</a></li><li><a href="#put/4">put/4</a></li><li><a href="#search/1">search/1</a></li><li><a href="#search/1-1">search/1-1</a></li><li><a href="#set_bucket/3">set_bucket/3</a></li><li><a href="#set_bucket/4">set_bucket/4</a></li><li><a href="#set_client_id/2">set_client_id/2</a></li><li><a href="#set_client_id/3">set_client_id/3</a></li><li><a href="#set_options/2">set_options/2</a></li><li><a href="#set_options/3">set_options/3</a></li><li><a href="#start/2">start/2</a></li><li><a href="#start/3">start/3</a></li><li><a href="#start_link/2">start_link/2</a></li><li><a href="#start_link/3">start_link/3</a></li><li><a href="#stop/1">stop/1</a></li><li><a href="#stream_list_keys/2">stream_list_keys/2</a></li><li><a href="#stream_list_keys/3">stream_list_keys/3</a></li></ul>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      var CURRENT_ROOT = "../";
+    </script>
+
+    <script type="text/javascript" src="../jquery.js"></script>
+    <script type="text/javascript" src="../erldocs_index.js"></script>
+    <script type="text/javascript" src="../erldocs.js"></script>
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-59760-14']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script');
+        ga.src = ('https:' == document.location.protocol ?
+          'https://ssl' : 'http://www') +
+          '.google-analytics.com/ga.js';
+        ga.setAttribute('async', 'true');
+        document.documentElement.firstChild.appendChild(ga);
+      })();
+    </script>
+  </body>
+</html>
+

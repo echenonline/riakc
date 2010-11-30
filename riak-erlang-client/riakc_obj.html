@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="latin1" />
+    <title>riakc_obj (riak-erlang-client) -  - erldocs.com (Erlang Documentation)</title>
+    <link type="text/css" rel="stylesheet" href="../erldocs.css" />
+  </head>
+  <body>
+
+    <div id="sidebar" class="inactive">
+      <input type="text" id="search" autocomplete="off"
+             placeholder="press TAB to search" />
+      <ul id="results"> </ul>
+    </div>
+
+    <div id="content">
+      <div style="margin:0px; padding:10px 20px;">
+        
+
+<h1>riakc_obj</h1>
+<h2 class="modsummary">riakc_obj is used to wrap bucket/key/value data sent to the
+                 server on put and received on get.</h2>
+<div class="description">
+<p>riakc_obj is used to wrap bucket/key/value data sent to the
+                 server on put and received on get.  It provides
+                 accessors for retrieving the data and metadata
+                 and copes with siblings if multiple values are allowed.</p></div>
+<div class="functions"><h4>Functions</h4><hr  />
+<div class="function">
+<h3 id="bucket/1">bucket(O) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="bucket-1"> </span>
+
+<p>Return the containing bucket for this riakc_obj.</p>
+</div></div>
+<div class="function">
+<h3 id="get_content_type/1">get_content_type(Object) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="get_content_type-1"> </span>
+
+<p>Return the content type of the value if there are no siblings</p>
+</div></div>
+<div class="function">
+<h3 id="get_content_types/1">get_content_types(Object) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="get_content_types-1"> </span>
+
+<p>Return a list of content types for all siblings</p>
+</div></div>
+<div class="function">
+<h3 id="get_contents/1">get_contents(O) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="get_contents-1"> </span>
+
+<p> Return the contents (a list of {metadata, value} tuples) for
+        this riakc_obj.</p>
+</div></div>
+<div class="function">
+<h3 id="get_metadata/1">get_metadata(O) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="get_metadata-1"> </span>
+
+<p> Assert that this riak_object has no siblings and return its associated
+        metadata.  This function will throw siblings if the object has
+        siblings (value_count() &gt; 1).</p>
+</div></div>
+<div class="function">
+<h3 id="get_metadatas/1">get_metadatas(Riakc_obj) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="get_metadatas-1"> </span>
+
+<p> Return a list of the metadata values for this riak_object.</p>
+</div></div>
+<div class="function">
+<h3 id="get_update_content_type/1">get_update_content_type(Object) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="get_update_content_type-1"> </span>
+
+<p>Return the content type of the update value</p>
+</div></div>
+<div class="function">
+<h3 id="get_update_metadata/1">get_update_metadata(Riakc_obj) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="get_update_metadata-1"> </span>
+
+<p> Return the updated metadata of this riakc_obj.</p>
+</div></div>
+<div class="function">
+<h3 id="get_update_value/1">get_update_value(Riakc_obj) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="get_update_value-1"> </span>
+
+<p> Return the updated value of this riakc_obj.</p>
+</div></div>
+<div class="function">
+<h3 id="get_value/1">get_value(Riakc_obj) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="get_value-1"> </span>
+
+<p> Assert that this riakc_obj has no siblings and return its associated
+        value.  This function will throw siblings if the object has
+        siblings (value_count() &gt; 1).</p>
+</div></div>
+<div class="function">
+<h3 id="get_values/1">get_values(Riakc_obj) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="get_values-1"> </span>
+
+<p> Return a list of object values for this riakc_obj.</p>
+</div></div>
+<div class="function">
+<h3 id="key/1">key(O::riakc_obj()) -&gt; key()</h3>
+
+
+<div class="description"><span id="key-1"> </span>
+
+<p> Return the key for this riakc_obj.</p>
+</div></div>
+<div class="function">
+<h3 id="md_ctype/1">md_ctype(MetaData) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="md_ctype-1"> </span>
+
+<p> Return the content type from metadata</p>
+</div></div>
+<div class="function">
+<h3 id="new/2">new(Bucket, Key) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="new-2"> </span>
+
+<p>Constructor for new riak client objects.</p>
+</div></div>
+<div class="function">
+<h3 id="new/3">new(Bucket, Key, Value) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="new-3"> </span>
+
+<p>Constructor for new riak client objects with an update value</p>
+</div></div>
+<div class="function">
+<h3 id="new/4">new(Bucket, Key, Value, ContentType) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="new-4"> </span>
+
+<p>Constructor for new riak client objects with an update value</p>
+</div></div>
+<div class="function">
+<h3 id="select_sibling/2">select_sibling(Index, O) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="select_sibling-2"> </span>
+
+<p> Select the sibling to use for update - starting from 1.</p>
+</div></div>
+<div class="function">
+<h3 id="update_content_type/2">update_content_type(Object, CT) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="update_content_type-2"> </span>
+
+<p> Set the updated content-type of an object to CT.</p>
+</div></div>
+<div class="function">
+<h3 id="update_metadata/2">update_metadata(Object, M) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="update_metadata-2"> </span>
+
+<p> Set the updated metadata of an object to M.</p>
+</div></div>
+<div class="function">
+<h3 id="update_value/2">update_value(Object, V) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="update_value-2"> </span>
+
+<p> Set the updated value of an object to V</p>
+</div></div>
+<div class="function">
+<h3 id="update_value/3">update_value(Object, V, CT) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="update_value-3"> </span>
+
+<p> Set the updated value of an object to V</p>
+</div></div>
+<div class="function">
+<h3 id="value_count/1">value_count(Riakc_obj) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="value_count-1"> </span>
+
+<p> Return the number of values (siblings) of this riakc_obj.</p>
+</div></div>
+<div class="function">
+<h3 id="vclock/1">vclock(O) -&gt; term()
+</h3>
+
+
+<div class="description"><span id="vclock-1"> </span>
+
+<p> Return the vector clock for this riakc_obj.</p>
+</div></div></div>
+
+<authors>
+<aname> </aname>
+<email> </email></authors>
+      </div>
+      <div id="funwrapper">
+        <a id="viewfuns">View Functions</a>
+        <ul id="funs"><li><a href="#bucket/1">bucket/1</a></li><li><a href="#get_content_type/1">get_content_type/1</a></li><li><a href="#get_content_types/1">get_content_types/1</a></li><li><a href="#get_contents/1">get_contents/1</a></li><li><a href="#get_metadata/1">get_metadata/1</a></li><li><a href="#get_metadatas/1">get_metadatas/1</a></li><li><a href="#get_update_content_type/1">get_update_content_type/1</a></li><li><a href="#get_update_metadata/1">get_update_metadata/1</a></li><li><a href="#get_update_value/1">get_update_value/1</a></li><li><a href="#get_value/1">get_value/1</a></li><li><a href="#get_values/1">get_values/1</a></li><li><a href="#key/1">key/1</a></li><li><a href="#md_ctype/1">md_ctype/1</a></li><li><a href="#new/2">new/2</a></li><li><a href="#new/3">new/3</a></li><li><a href="#new/4">new/4</a></li><li><a href="#select_sibling/2">select_sibling/2</a></li><li><a href="#update_content_type/2">update_content_type/2</a></li><li><a href="#update_metadata/2">update_metadata/2</a></li><li><a href="#update_value/2">update_value/2</a></li><li><a href="#update_value/3">update_value/3</a></li><li><a href="#value_count/1">value_count/1</a></li><li><a href="#vclock/1">vclock/1</a></li></ul>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      var CURRENT_ROOT = "../";
+    </script>
+
+    <script type="text/javascript" src="../jquery.js"></script>
+    <script type="text/javascript" src="../erldocs_index.js"></script>
+    <script type="text/javascript" src="../erldocs.js"></script>
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-59760-14']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script');
+        ga.src = ('https:' == document.location.protocol ?
+          'https://ssl' : 'http://www') +
+          '.google-analytics.com/ga.js';
+        ga.setAttribute('async', 'true');
+        document.documentElement.firstChild.appendChild(ga);
+      })();
+    </script>
+  </body>
+</html>
+
