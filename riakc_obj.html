@@ -1,0 +1,221 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Module riakc_obj</title>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" title="EDoc">
+</head>
+<body bgcolor="white">
+<div class="navbar"><a name="#navbar_top"></a><table width="100%" border="0" cellspacing="0" cellpadding="2" summary="navigation bar"><tr><td><a href="overview-summary.html" target="overviewFrame">Overview</a></td><td><a href="http://www.erlang.org/"><img src="erlang.png" align="right" border="0" alt="erlang logo"></a></td></tr></table></div>
+<hr>
+
+<h1>Module riakc_obj</h1>
+<ul class="index"><li><a href="#description">Description</a></li><li><a href="#types">Data Types</a></li><li><a href="#index">Function Index</a></li><li><a href="#functions">Function Details</a></li></ul>riakc_obj is used to wrap bucket/key/value data sent to the
+                 server on put and received on get.
+
+
+<h2><a name="description">Description</a></h2>riakc_obj is used to wrap bucket/key/value data sent to the
+                 server on put and received on get.  It provides
+                 accessors for retrieving the data and metadata
+                 and copes with siblings if multiple values are allowed.
+<h2><a name="types">Data Types</a></h2>
+
+<h3 class="typedecl"><a name="type-bucket">bucket()</a></h3>
+<p><tt>bucket() = binary()</tt></p>
+<p>  A bucket name</p>
+
+<h3 class="typedecl"><a name="type-content_type">content_type()</a></h3>
+<p><tt>content_type() = string()</tt></p>
+<p>  The media type of a value</p>
+
+<h3 class="typedecl"><a name="type-contents">contents()</a></h3>
+<p><tt>contents() = [{<a href="#type-metadata">metadata()</a>, <a href="#type-value">value()</a>}]</tt></p>
+<p>  All metadata/value pairs in a <code>riakc_obj</code>.</p>
+
+<h3 class="typedecl"><a name="type-key">key()</a></h3>
+<p><tt>key() = binary() | undefined</tt></p>
+<p>  A key name</p>
+
+<h3 class="typedecl"><a name="type-metadata">metadata()</a></h3>
+<p><tt>metadata() = dict()</tt></p>
+<p>  Value metadata</p>
+
+<h3 class="typedecl"><a name="type-riakc_obj">riakc_obj()</a></h3>
+<p><tt>riakc_obj() = #riakc_obj{}</tt></p>
+<p>  The record/type containing the entire Riak object.</p>
+
+<h3 class="typedecl"><a name="type-value">value()</a></h3>
+<p><tt>value() = binary()</tt></p>
+<p>  An opaque value</p>
+
+<h3 class="typedecl"><a name="type-vclock">vclock()</a></h3>
+<p><tt>vclock() = binary()</tt></p>
+<p>  An opaque vector clock</p>
+
+<h2><a name="index">Function Index</a></h2>
+<table width="100%" border="1" cellspacing="0" cellpadding="2" summary="function index"><tr><td valign="top"><a href="#bucket-1">bucket/1</a></td><td>Return the containing bucket for this riakc_obj.</td></tr>
+<tr><td valign="top"><a href="#get_content_type-1">get_content_type/1</a></td><td>Return the content type of the value if there are no siblings.</td></tr>
+<tr><td valign="top"><a href="#get_content_types-1">get_content_types/1</a></td><td>Return a list of content types for all siblings.</td></tr>
+<tr><td valign="top"><a href="#get_contents-1">get_contents/1</a></td><td> Return the contents (a list of {metadata, value} tuples) for
+        this riakc_obj.</td></tr>
+<tr><td valign="top"><a href="#get_metadata-1">get_metadata/1</a></td><td>Assert that this riakc_obj has no siblings and return its
+        associated metadata.</td></tr>
+<tr><td valign="top"><a href="#get_metadatas-1">get_metadatas/1</a></td><td> Return a list of the metadata values for this riakc_obj.</td></tr>
+<tr><td valign="top"><a href="#get_update_content_type-1">get_update_content_type/1</a></td><td>Return the content type of the update value.</td></tr>
+<tr><td valign="top"><a href="#get_update_metadata-1">get_update_metadata/1</a></td><td> Return the updated metadata of this riakc_obj.</td></tr>
+<tr><td valign="top"><a href="#get_update_value-1">get_update_value/1</a></td><td> Return the updated value of this riakc_obj.</td></tr>
+<tr><td valign="top"><a href="#get_value-1">get_value/1</a></td><td>Assert that this riakc_obj has no siblings and return its
+        associated value.</td></tr>
+<tr><td valign="top"><a href="#get_values-1">get_values/1</a></td><td> Return a list of object values for this riakc_obj.</td></tr>
+<tr><td valign="top"><a href="#key-1">key/1</a></td><td> Return the key for this riakc_obj.</td></tr>
+<tr><td valign="top"><a href="#md_ctype-1">md_ctype/1</a></td><td> Return the content type from metadata.</td></tr>
+<tr><td valign="top"><a href="#new-2">new/2</a></td><td>Constructor for new riak client objects.</td></tr>
+<tr><td valign="top"><a href="#new-3">new/3</a></td><td>Constructor for new riak client objects with an update value.</td></tr>
+<tr><td valign="top"><a href="#new-4">new/4</a></td><td>Constructor for new riak client objects with an update value and content type.</td></tr>
+<tr><td valign="top"><a href="#select_sibling-2">select_sibling/2</a></td><td> Select the sibling to use for update - starting from 1.</td></tr>
+<tr><td valign="top"><a href="#set_vclock-2">set_vclock/2</a></td><td> Set the vector clock of an object.</td></tr>
+<tr><td valign="top"><a href="#update_content_type-2">update_content_type/2</a></td><td> Set the updated content-type of an object to CT.</td></tr>
+<tr><td valign="top"><a href="#update_metadata-2">update_metadata/2</a></td><td> Set the updated metadata of an object to M.</td></tr>
+<tr><td valign="top"><a href="#update_value-2">update_value/2</a></td><td> Set the updated value of an object to V.</td></tr>
+<tr><td valign="top"><a href="#update_value-3">update_value/3</a></td><td> Set the updated value of an object to V.</td></tr>
+<tr><td valign="top"><a href="#value_count-1">value_count/1</a></td><td> Return the number of values (siblings) of this riakc_obj.</td></tr>
+<tr><td valign="top"><a href="#vclock-1">vclock/1</a></td><td> Return the vector clock for this riakc_obj.</td></tr>
+</table>
+
+<h2><a name="functions">Function Details</a></h2>
+
+<h3 class="function"><a name="bucket-1">bucket/1</a></h3>
+<div class="spec">
+<p><tt>bucket(Object::<a href="#type-riakc_obj">riakc_obj()</a>) -&gt; <a href="#type-bucket">bucket()</a></tt><br></p>
+</div><p>Return the containing bucket for this riakc_obj.</p>
+
+<h3 class="function"><a name="get_content_type-1">get_content_type/1</a></h3>
+<div class="spec">
+<p><tt>get_content_type(Object::<a href="#type-riakc_obj">riakc_obj()</a>) -&gt; <a href="#type-content_type">content_type()</a></tt><br></p>
+</div><p>throws <tt>siblings | no_metadata</tt></p>
+<p>Return the content type of the value if there are no siblings.</p>
+<p><b>See also:</b> <a href="#get_metadata-1">get_metadata/1</a>.</p>
+
+<h3 class="function"><a name="get_content_types-1">get_content_types/1</a></h3>
+<div class="spec">
+<p><tt>get_content_types(Object::<a href="#type-riakc_obj">riakc_obj()</a>) -&gt; [<a href="#type-content_type">content_type()</a>]</tt><br></p>
+</div><p>Return a list of content types for all siblings.</p>
+
+<h3 class="function"><a name="get_contents-1">get_contents/1</a></h3>
+<div class="spec">
+<p><tt>get_contents(Object::<a href="#type-riakc_obj">riakc_obj()</a>) -&gt; <a href="#type-contents">contents()</a></tt><br></p>
+</div><p> Return the contents (a list of {metadata, value} tuples) for
+        this riakc_obj.</p>
+
+<h3 class="function"><a name="get_metadata-1">get_metadata/1</a></h3>
+<div class="spec">
+<p><tt>get_metadata(Object::<a href="#type-riakc_obj">riakc_obj()</a>) -&gt; <a href="#type-metadata">metadata()</a></tt><br></p>
+</div><p>throws <tt>siblings | no_metadata</tt></p>
+<p>Assert that this riakc_obj has no siblings and return its
+        associated metadata.  This function will throw <code>siblings</code> if
+        the object has siblings (value_count() &gt; 1), or <code>no_metadata</code>
+        if the object has no metadata.</p>
+
+<h3 class="function"><a name="get_metadatas-1">get_metadatas/1</a></h3>
+<div class="spec">
+<p><tt>get_metadatas(Object::<a href="#type-riakc_obj">riakc_obj()</a>) -&gt; [<a href="#type-metadata">metadata()</a>]</tt><br></p>
+</div><p> Return a list of the metadata values for this riakc_obj.</p>
+
+<h3 class="function"><a name="get_update_content_type-1">get_update_content_type/1</a></h3>
+<div class="spec">
+<p><tt>get_update_content_type(Object::<a href="#type-riakc_obj">riakc_obj()</a>) -&gt; <a href="#type-content_type">content_type()</a></tt><br></p>
+</div><p>Return the content type of the update value</p>
+
+<h3 class="function"><a name="get_update_metadata-1">get_update_metadata/1</a></h3>
+<div class="spec">
+<p><tt>get_update_metadata(Object::<a href="#type-riakc_obj">riakc_obj()</a>) -&gt; <a href="#type-metadata">metadata()</a></tt><br></p>
+</div><p> Return the updated metadata of this riakc_obj.</p>
+
+<h3 class="function"><a name="get_update_value-1">get_update_value/1</a></h3>
+<div class="spec">
+<p><tt>get_update_value(Object::<a href="#type-riakc_obj">riakc_obj()</a>) -&gt; <a href="#type-value">value()</a></tt><br></p>
+</div><p> Return the updated value of this riakc_obj.</p>
+
+<h3 class="function"><a name="get_value-1">get_value/1</a></h3>
+<div class="spec">
+<p><tt>get_value(Object::<a href="#type-riakc_obj">riakc_obj()</a>) -&gt; <a href="#type-value">value()</a></tt><br></p>
+</div><p>throws <tt>siblings | no_value</tt></p>
+<p>Assert that this riakc_obj has no siblings and return its
+        associated value.  This function will throw <code>siblings</code> if the
+        object has siblings (value_count() &gt; 1), or <code>no_value</code> if the
+        object has no value.</p>
+
+<h3 class="function"><a name="get_values-1">get_values/1</a></h3>
+<div class="spec">
+<p><tt>get_values(Object::<a href="#type-riakc_obj">riakc_obj()</a>) -&gt; [<a href="#type-value">value()</a>]</tt><br></p>
+</div><p> Return a list of object values for this riakc_obj.</p>
+
+<h3 class="function"><a name="key-1">key/1</a></h3>
+<div class="spec">
+<p><tt>key(Object::<a href="#type-riakc_obj">riakc_obj()</a>) -&gt; <a href="#type-key">key()</a></tt><br></p>
+</div><p> Return the key for this riakc_obj.</p>
+
+<h3 class="function"><a name="md_ctype-1">md_ctype/1</a></h3>
+<div class="spec">
+<p><tt>md_ctype(MetaData::dict()) -&gt; undefined | <a href="#type-content_type">content_type()</a></tt><br></p>
+</div><p> Return the content type from metadata</p>
+
+<h3 class="function"><a name="new-2">new/2</a></h3>
+<div class="spec">
+<p><tt>new(Bucket::<a href="#type-bucket">bucket()</a>, Key::<a href="#type-key">key()</a>) -&gt; <a href="#type-riakc_obj">riakc_obj()</a></tt><br></p>
+</div><p>Constructor for new riak client objects.</p>
+
+<h3 class="function"><a name="new-3">new/3</a></h3>
+<div class="spec">
+<p><tt>new(Bucket::<a href="#type-bucket">bucket()</a>, Key::<a href="#type-key">key()</a>, Value::<a href="#type-value">value()</a>) -&gt; <a href="#type-riakc_obj">riakc_obj()</a></tt><br></p>
+</div><p>Constructor for new riak client objects with an update value.</p>
+
+<h3 class="function"><a name="new-4">new/4</a></h3>
+<div class="spec">
+<p><tt>new(Bucket::<a href="#type-bucket">bucket()</a>, Key::<a href="#type-key">key()</a>, Value::<a href="#type-value">value()</a>, ContentType::<a href="#type-content_type">content_type()</a>) -&gt; <a href="#type-riakc_obj">riakc_obj()</a></tt><br></p>
+</div><p>Constructor for new riak client objects with an update value and content type.</p>
+
+<h3 class="function"><a name="select_sibling-2">select_sibling/2</a></h3>
+<div class="spec">
+<p><tt>select_sibling(Index::pos_integer(), Object::<a href="#type-riakc_obj">riakc_obj()</a>) -&gt; <a href="#type-riakc_obj">riakc_obj()</a></tt><br></p>
+</div><p> Select the sibling to use for update - starting from 1.</p>
+
+<h3 class="function"><a name="set_vclock-2">set_vclock/2</a></h3>
+<div class="spec">
+<p><tt>set_vclock(Object::<a href="#type-riakc_obj">riakc_obj()</a>, Vclock::<a href="#type-vclock">vclock()</a>) -&gt; <a href="#type-riakc_obj">riakc_obj()</a></tt><br></p>
+</div><p> Set the vector clock of an object</p>
+
+<h3 class="function"><a name="update_content_type-2">update_content_type/2</a></h3>
+<div class="spec">
+<p><tt>update_content_type(Object::<a href="#type-riakc_obj">riakc_obj()</a>, CT::<a href="#type-content_type">content_type()</a> | binary()) -&gt; <a href="#type-riakc_obj">riakc_obj()</a></tt><br></p>
+</div><p> Set the updated content-type of an object to CT.</p>
+
+<h3 class="function"><a name="update_metadata-2">update_metadata/2</a></h3>
+<div class="spec">
+<p><tt>update_metadata(Object::<a href="#type-riakc_obj">riakc_obj()</a>, M::<a href="#type-metadata">metadata()</a>) -&gt; <a href="#type-riakc_obj">riakc_obj()</a></tt><br></p>
+</div><p> Set the updated metadata of an object to M.</p>
+
+<h3 class="function"><a name="update_value-2">update_value/2</a></h3>
+<div class="spec">
+<p><tt>update_value(Object::<a href="#type-riakc_obj">riakc_obj()</a>, V::<a href="#type-value">value()</a>) -&gt; <a href="#type-riakc_obj">riakc_obj()</a></tt><br></p>
+</div><p> Set the updated value of an object to V</p>
+
+<h3 class="function"><a name="update_value-3">update_value/3</a></h3>
+<div class="spec">
+<p><tt>update_value(Object::<a href="#type-riakc_obj">riakc_obj()</a>, V::<a href="#type-value">value()</a>, CT::<a href="#type-content_type">content_type()</a>) -&gt; <a href="#type-riakc_obj">riakc_obj()</a></tt><br></p>
+</div><p> Set the updated value of an object to V</p>
+
+<h3 class="function"><a name="value_count-1">value_count/1</a></h3>
+<div class="spec">
+<p><tt>value_count(Object::<a href="#type-riakc_obj">riakc_obj()</a>) -&gt; non_neg_integer()</tt><br></p>
+</div><p> Return the number of values (siblings) of this riakc_obj.</p>
+
+<h3 class="function"><a name="vclock-1">vclock/1</a></h3>
+<div class="spec">
+<p><tt>vclock(Object::<a href="#type-riakc_obj">riakc_obj()</a>) -&gt; <a href="#type-vclock">vclock()</a></tt><br></p>
+</div><p> Return the vector clock for this riakc_obj.</p>
+<hr>
+
+<div class="navbar"><a name="#navbar_bottom"></a><table width="100%" border="0" cellspacing="0" cellpadding="2" summary="navigation bar"><tr><td><a href="overview-summary.html" target="overviewFrame">Overview</a></td><td><a href="http://www.erlang.org/"><img src="erlang.png" align="right" border="0" alt="erlang logo"></a></td></tr></table></div>
+<p><i>Generated by EDoc, Apr 7 2012, 15:38:39.</i></p>
+</body>
+</html>

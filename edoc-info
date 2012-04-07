@@ -1,0 +1,3 @@
+{application,riakc}.
+{packages,[]}.
+{modules,[riakc_obj,riakc_pb,riakc_pb_socket]}.
