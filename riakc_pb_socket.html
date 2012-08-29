@@ -1,6 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Module riakc_pb_socket</title>
 <link rel="stylesheet" type="text/css" href="stylesheet.css" title="EDoc">
 </head>
@@ -24,142 +25,13 @@
 <p><tt>address() = string() | atom() | <a href="inet.html#type-ip_address">inet:ip_address()</a></tt></p>
 <p>  The TCP/IP host name or address of the Riak node</p>
 
-<h3 class="typedecl"><a name="type-bucket">bucket()</a></h3>
-<p><tt>bucket() = binary()</tt></p>
-<p>  A bucket name.</p>
-
-<h3 class="typedecl"><a name="type-bucket_prop">bucket_prop()</a></h3>
-<p><tt>bucket_prop() = {n_val, pos_integer()} | {allow_mult, boolean()}</tt></p>
-<p>  Bucket property definitions.</p>
-
-<h3 class="typedecl"><a name="type-bucket_props">bucket_props()</a></h3>
-<p><tt>bucket_props() = [<a href="#type-bucket_prop">bucket_prop()</a>]</tt></p>
-<p>  Bucket properties</p>
-
-<h3 class="typedecl"><a name="type-client_id">client_id()</a></h3>
-<p><tt>client_id() = binary()</tt></p>
-<p>  A client identifier, used for differentiating client processes</p>
-
-<h3 class="typedecl"><a name="type-client_option">client_option()</a></h3>
-<p><tt>client_option() = queue_if_disconnected | {queue_if_disconnected, boolean()} | auto_reconnect | {auto_reconnect, boolean()}</tt></p>
-<p>  Options for starting or modifying the connection:
-  <code>queue_if_disconnected</code> when present or true will cause requests to
-  be queued while the connection is down. <code>auto_reconnect</code> when
-  present or true will automatically attempt to reconnect to the
-  server if the connection fails or is lost.</p>
-
-<h3 class="typedecl"><a name="type-client_options">client_options()</a></h3>
-<p><tt>client_options() = [<a href="#type-client_option">client_option()</a>]</tt></p>
-<p>  A list of client options.</p>
-
-<h3 class="typedecl"><a name="type-connection_failure">connection_failure()</a></h3>
-<p><tt>connection_failure() = {Reason::term(), FailureCount::integer()}</tt></p>
-<p>  The reason for connection failure and how many times that type of
-  failure has occurred since startup.</p>
-
-<h3 class="typedecl"><a name="type-delete_options">delete_options()</a></h3>
-<p><tt>delete_options() = [<a href="#type-delete_quorum">delete_quorum()</a>]</tt></p>
-<p>  A list of options for a delete request.</p>
-
-<h3 class="typedecl"><a name="type-delete_quorum">delete_quorum()</a></h3>
-<p><tt>delete_quorum() = <a href="#type-read_quorum">read_quorum()</a> | <a href="#type-write_quorum">write_quorum()</a> | {rw, ReadWriteQuorum::<a href="#type-quorum">quorum()</a>}</tt></p>
-<p>  Valid quorum options for delete requests. Note that <code>rw</code> is deprecated in Riak 1.0 and later.</p>
-
-<h3 class="typedecl"><a name="type-get_option">get_option()</a></h3>
-<p><tt>get_option() = <a href="#type-read_quorum">read_quorum()</a> | {if_modified, <a href="riakc_obj.html#type-vclock">riakc_obj:vclock()</a>} | head | deletedvclock</tt></p>
-<p>  Valid request options for get requests. When <code>if_modified</code> is
-  specified with a vclock, the request will fail if the object has
-  not changed. When <code>head</code> is specified, only the metadata will be
-  returned. When <code>deletedvclock</code> is specified, the vector clock of
-  the tombstone will be returned if the object has been recently
-  deleted.</p>
-
-<h3 class="typedecl"><a name="type-get_options">get_options()</a></h3>
-<p><tt>get_options() = [<a href="#type-get_option">get_option()</a>]</tt></p>
-<p>  A list of options for a get request.</p>
-
-<h3 class="typedecl"><a name="type-key">key()</a></h3>
-<p><tt>key() = binary()</tt></p>
-<p>  A key name.</p>
-
-<h3 class="typedecl"><a name="type-mapred_funterm">mapred_funterm()</a></h3>
-<p><tt>mapred_funterm() = {modfun, Module::atom(), Function::atom()} | {qfun, function()} | {strfun, list() | binary()}</tt></p>
-<p>  A MapReduce phase function specification. <code>modfun</code> requires that
-  the compiled module be available on all Riak nodes. <code>qfun</code> will
-  only work from the shell (compiled fun() terms refer to compiled
-  code only). <code>strfun</code> contains the textual source of an Erlang
-  function but the functionality must be enabled on the Riak cluster.</p>
-
-<h3 class="typedecl"><a name="type-mapred_inputs">mapred_inputs()</a></h3>
-<p><tt>mapred_inputs() = [{<a href="#type-bucket">bucket()</a>, <a href="#type-key">key()</a>} | {<a href="#type-bucket">bucket()</a>, <a href="#type-key">key()</a>, term()}] | {modfun, Module::atom(), Function::atom(), [term()]} | <a href="#type-bucket">bucket()</a> | {index, <a href="#type-bucket">bucket()</a>, Index::binary(), <a href="#type-key">key()</a>} | {index, <a href="#type-bucket">bucket()</a>, Index::binary(), StartKey::<a href="#type-key">key()</a>, EndKey::<a href="#type-key">key()</a>}</tt></p>
-<p>  Inputs for a MapReduce job.</p>
-
-<h3 class="typedecl"><a name="type-mapred_queryterm">mapred_queryterm()</a></h3>
-<p><tt>mapred_queryterm() = {map, <a href="#type-mapred_funterm">mapred_funterm()</a>, Arg::term(), Accumulate::boolean()} | {reduce, <a href="#type-mapred_funterm">mapred_funterm()</a>, Arg::term(), Accumulate::boolean()} | {link, Bucket::<a href="riakc_obj.html#type-bucket">riakc_obj:bucket()</a>, Tag::term(), Accumulate::boolean()}</tt></p>
-<p>  A MapReduce phase specification. <code>map</code> functions operate on single
-  K/V objects. <code>reduce</code> functions operate across collections of
-  inputs from other phases. <code>link</code> is a special type of map phase
-  that matches links in the fetched objects. The <code>Arg</code> parameter will
-  be passed as the last argument to the phase function. The
-  <code>Accumulate</code> param determines whether results from this phase will
-  be returned to the client.</p>
-
-<h3 class="typedecl"><a name="type-mapred_result">mapred_result()</a></h3>
-<p><tt>mapred_result() = [term()]</tt></p>
-<p>  The results of a MapReduce job.</p>
+<h3 class="typedecl"><a name="type-msg_id">msg_id()</a></h3>
+<p><tt>msg_id() = non_neg_integer()</tt></p>
+<p>  Request identifier for tunneled message types</p>
 
 <h3 class="typedecl"><a name="type-portnum">portnum()</a></h3>
 <p><tt>portnum() = non_neg_integer()</tt></p>
 <p>  The TCP port number of the Riak node's Protocol Buffers interface</p>
-
-<h3 class="typedecl"><a name="type-put_option">put_option()</a></h3>
-<p><tt>put_option() = <a href="#type-write_quorum">write_quorum()</a> | return_body | return_head | if_not_modified | if_none_match</tt></p>
-<p>  Valid request options for put requests. <code>return_body</code> returns the
-  entire result of storing the object. <code>return_head</code> returns the
-  metadata from the result of storing the object. <code>if_not_modified</code>
-  will cause the request to fail if the local and remote vclocks do
-  not match. <code>if_none_match</code> will cause the request to fail if the
-  object already exists in Riak.</p>
-
-<h3 class="typedecl"><a name="type-put_options">put_options()</a></h3>
-<p><tt>put_options() = [<a href="#type-put_option">put_option()</a>]</tt></p>
-<p>  A list of options for a put request.</p>
-
-<h3 class="typedecl"><a name="type-quorum">quorum()</a></h3>
-<p><tt>quorum() = non_neg_integer() | one | all | quorum | default</tt></p>
-<p>  A quorum setting for get/put/delete requests.</p>
-
-<h3 class="typedecl"><a name="type-read_quorum">read_quorum()</a></h3>
-<p><tt>read_quorum() = {r, ReadQuorum::<a href="#type-quorum">quorum()</a>} | {pr, PrimaryReadQuorum::<a href="#type-quorum">quorum()</a>}</tt></p>
-<p>  Valid quorum options for get requests.</p>
-
-<h3 class="typedecl"><a name="type-req_id">req_id()</a></h3>
-<p><tt>req_id() = non_neg_integer()</tt></p>
-<p>  Request identifier for streaming requests.</p>
-
-<h3 class="typedecl"><a name="type-riakc_obj">riakc_obj()</a></h3>
-<p><tt>riakc_obj() = <a href="riakc_obj.html#type-riakc_obj">riakc_obj:riakc_obj()</a></tt></p>
-<p>  An object (bucket, key, metadata, value) stored in Riak.</p>
-
-<h3 class="typedecl"><a name="type-server_info">server_info()</a></h3>
-<p><tt>server_info() = [<a href="#type-server_prop">server_prop()</a>]</tt></p>
-<p>  A response from the <code>get_server_info/1</code> call.</p>
-
-<h3 class="typedecl"><a name="type-server_prop">server_prop()</a></h3>
-<p><tt>server_prop() = {node, binary()} | {server_version, binary()}</tt></p>
-<p>  Server properties, as returned by the <code>get_server_info/1</code> call.</p>
-
-<h3 class="typedecl"><a name="type-timeout_name">timeout_name()</a></h3>
-<p><tt>timeout_name() = ping_timeout | get_client_id_timeout | set_client_id_timeout | get_server_info_timeout | get_timeout | put_timeout | delete_timeout | list_buckets_timeout | list_buckets_call_timeout | list_keys_timeout | stream_list_keys_timeout | stream_list_keys_call_timeout | get_bucket_timeout | get_bucket_call_timeout | set_bucket_timeout | set_bucket_call_timeout | mapred_timeout | mapred_call_timeout | mapred_stream_timeout | mapred_stream_call_timeout | mapred_bucket_timeout | mapred_bucket_call_timeout | mapred_bucket_stream_call_timeout | search_timeout | search_call_timeout | timeout</tt></p>
-<p>  Which client operation the default timeout is being requested
-  for. <code>timeout</code> is the global default timeout. Any of these defaults
-  can be overridden by setting the application environment variable
-  of the same name on the <code>riakc</code> application, for example:
-  <code>application:set_env(riakc, ping_timeout, 5000).</code></p>
-
-<h3 class="typedecl"><a name="type-write_quorum">write_quorum()</a></h3>
-<p><tt>write_quorum() = {w, WriteQuorum::<a href="#type-quorum">quorum()</a>} | {dw, DurableWriteQuorum::<a href="#type-quorum">quorum()</a>} | {pw, PrimaryWriteQuorum::<a href="#type-quorum">quorum()</a>}</tt></p>
-<p>  Valid quorum options for write requests.</p>
 
 <h2><a name="index">Function Index</a></h2>
 <table width="100%" border="1" cellspacing="0" cellpadding="2" summary="function index"><tr><td valign="top"><a href="#default_timeout-1">default_timeout/1</a></td><td>Return the default timeout for an operation if none is provided.</td></tr>
@@ -224,10 +96,9 @@
 <tr><td valign="top"><a href="#put-4">put/4</a></td><td>Put the metadata/value in the object under bucket/key with
        options and timeout.</td></tr>
 <tr><td valign="top"><a href="#search-3">search/3</a></td><td>Execute a search query.</td></tr>
-<tr><td valign="top"><a href="#search-5">search/5</a></td><td>Execute a search query and feed the results into a MapReduce
-       query.</td></tr>
-<tr><td valign="top"><a href="#search-6">search/6</a></td><td>Execute a search query and feed the results into a MapReduce
-       query with a timeout on the call.</td></tr>
+<tr><td valign="top"><a href="#search-4">search/4</a></td><td>Execute a search query.</td></tr>
+<tr><td valign="top"><a href="#search-5">search/5</a></td><td>Execute a search query.</td></tr>
+<tr><td valign="top"><a href="#search-6">search/6</a></td><td>Execute a search query.</td></tr>
 <tr><td valign="top"><a href="#set_bucket-3">set_bucket/3</a></td><td>Set bucket properties.</td></tr>
 <tr><td valign="top"><a href="#set_bucket-4">set_bucket/4</a></td><td>Set bucket properties specifying a server side timeout.</td></tr>
 <tr><td valign="top"><a href="#set_bucket-5">set_bucket/5</a></td><td>Set bucket properties specifying a server side and local call timeout.</td></tr>
@@ -246,6 +117,8 @@
        timeout.</td></tr>
 <tr><td valign="top"><a href="#stream_list_keys-4">stream_list_keys/4</a></td><td>Stream list of keys in the bucket to the calling process specifying server side
        timeout and local call timeout.</td></tr>
+<tr><td valign="top"><a href="#tunnel-4">tunnel/4</a></td><td>Send a pre-encoded msg over the protocol buffer connection
+  Returns {ok, Response} or {error, Reason}.</td></tr>
 </table>
 
 <h2><a name="functions">Function Details</a></h2>
@@ -374,28 +247,28 @@
 
 <h3 class="function"><a name="get_index-4">get_index/4</a></h3>
 <div class="spec">
-<p><tt>get_index(Pid::pid(), Bucket::<a href="#type-bucket">bucket()</a>, Index::binary(), Key::<a href="#type-key">key()</a> | integer()) -&gt; {ok, <a href="#type-mapred_result">mapred_result()</a>} | {error, term()}</tt><br></p>
+<p><tt>get_index(Pid::pid(), Bucket::<a href="#type-bucket">bucket()</a>, Index::binary(), Key::<a href="#type-key">key()</a> | integer()) -&gt; {ok, <a href="#type-index_result">index_result()</a>} | {error, term()}</tt><br></p>
 </div><p>Execute a secondary index equality query. This functionality
   is implemented via executing a MapReduce job with an index as the
   input.</p>
 
 <h3 class="function"><a name="get_index-5">get_index/5</a></h3>
 <div class="spec">
-<p><tt>get_index(Pid::pid(), Bucket::<a href="#type-bucket">bucket()</a>, Index::binary(), StartKey::<a href="#type-key">key()</a> | integer(), EndKey::<a href="#type-key">key()</a> | integer()) -&gt; {ok, <a href="#type-mapred_result">mapred_result()</a>} | {error, term()}</tt><br></p>
+<p><tt>get_index(Pid::pid(), Bucket::<a href="#type-bucket">bucket()</a>, Index::binary(), StartKey::<a href="#type-key">key()</a> | integer(), EndKey::<a href="#type-key">key()</a> | integer()) -&gt; {ok, <a href="#type-index_result">index_result()</a>} | {error, term()}</tt><br></p>
 </div><p>Execute a secondary index range query. This behavior is
   implemented via executing a MapReduce job with an index as the
   input.</p>
 
 <h3 class="function"><a name="get_index-6">get_index/6</a></h3>
 <div class="spec">
-<p><tt>get_index(Pid::pid(), Bucket::<a href="#type-bucket">bucket()</a>, Index::binary(), Key::<a href="#type-key">key()</a> | integer(), Timeout::timeout(), CallTimeout::timeout()) -&gt; {ok, <a href="#type-mapred_result">mapred_result()</a>} | {error, term()}</tt><br></p>
+<p><tt>get_index(Pid::pid(), Bucket::<a href="#type-bucket">bucket()</a>, Index::binary(), Key::<a href="#type-key">key()</a> | integer(), Timeout::timeout(), CallTimeout::timeout()) -&gt; {ok, <a href="#type-index_result">index_result()</a>} | {error, term()}</tt><br></p>
 </div><p>Execute a secondary index equality query with specified
   timeouts. This behavior is implemented via executing a MapReduce
   job with an index as the input.</p>
 
 <h3 class="function"><a name="get_index-7">get_index/7</a></h3>
 <div class="spec">
-<p><tt>get_index(Pid::pid(), Bucket::<a href="#type-bucket">bucket()</a>, Index::binary(), StartKey::<a href="#type-key">key()</a> | integer(), EndKey::<a href="#type-key">key()</a> | integer(), Timeout::timeout(), CallTimeout::timeout()) -&gt; {ok, <a href="#type-mapred_result">mapred_result()</a>} | {error, term()}</tt><br></p>
+<p><tt>get_index(Pid::pid(), Bucket::<a href="#type-bucket">bucket()</a>, Index::binary(), StartKey::<a href="#type-key">key()</a> | integer(), EndKey::<a href="#type-key">key()</a> | integer(), Timeout::timeout(), CallTimeout::timeout()) -&gt; {ok, <a href="#type-index_result">index_result()</a>} | {error, term()}</tt><br></p>
 </div><p>Execute a secondary index range query with specified
   timeouts. This behavior is implemented via executing a MapReduce
   job with an index as the input.</p>
@@ -615,27 +488,27 @@
 
 <h3 class="function"><a name="search-3">search/3</a></h3>
 <div class="spec">
-<p><tt>search(Pid::pid(), Bucket::<a href="#type-bucket">bucket()</a>, SearchQuery::string()) -&gt; {ok, <a href="#type-mapred_result">mapred_result()</a>} | {error, term()}</tt><br></p>
+<p><tt>search(Pid::pid(), Index::binary(), SearchQuery::binary()) -&gt; {ok, <a href="#type-search_result">search_result()</a>} | {error, term()}</tt><br></p>
 </div><p>Execute a search query. This command will return an error
-       unless executed against a Riak Search cluster.  Because
-       Protocol Buffers has no native Search interface, this uses the
-       search inputs to MapReduce.</p>
+       unless executed against a Riak Search cluster.</p>
+
+<h3 class="function"><a name="search-4">search/4</a></h3>
+<div class="spec">
+<p><tt>search(Pid::pid(), Index::binary(), SearchQuery::binary(), Options::<a href="#type-search_options">search_options()</a>) -&gt; {ok, <a href="#type-search_result">search_result()</a>} | {error, term()}</tt><br></p>
+</div><p>Execute a search query. This command will return an error
+       unless executed against a Riak Search cluster.</p>
 
 <h3 class="function"><a name="search-5">search/5</a></h3>
 <div class="spec">
-<p><tt>search(Pid::pid(), Bucket::<a href="#type-bucket">bucket()</a>, SearchQuery::string(), MRQuery::[<a href="#type-mapred_queryterm">mapred_queryterm()</a>], Timeout::timeout()) -&gt; {ok, <a href="#type-mapred_result">mapred_result()</a>} | {error, term()}</tt><br></p>
-</div><p>Equivalent to <a href="#search-6"><tt>search(Pid, Bucket, SearchQuery, MRQuery, Timeout,
-       default_timeout(search_call_timeout))</tt></a>.</p>
-<p>Execute a search query and feed the results into a MapReduce
-       query.  This command will return an error
+<p><tt>search(Pid::pid(), Index::binary(), SearchQuery::binary(), Options::<a href="#type-search_options">search_options()</a>, Timeout::timeout()) -&gt; {ok, <a href="#type-search_result">search_result()</a>} | {error, term()}</tt><br></p>
+</div><p>Execute a search query. This command will return an error
        unless executed against a Riak Search cluster.</p>
 
 <h3 class="function"><a name="search-6">search/6</a></h3>
 <div class="spec">
-<p><tt>search(Pid::pid(), Bucket::<a href="#type-bucket">bucket()</a>, SearchQuery::string(), MRQuery::[<a href="#type-mapred_queryterm">mapred_queryterm()</a>], Timeout::timeout(), CallTimeout::timeout()) -&gt; {ok, <a href="#type-mapred_result">mapred_result()</a>} | {error, term()}</tt><br></p>
-</div><p>Execute a search query and feed the results into a MapReduce
-       query with a timeout on the call. This command will return
-       an error unless executed against a Riak Search cluster.</p>
+<p><tt>search(Pid::pid(), Index::binary(), SearchQuery::binary(), Options::<a href="#type-search_options">search_options()</a>, Timeout::timeout(), CallTimeout::timeout()) -&gt; {ok, <a href="#type-search_result">search_result()</a>} | {error, term()}</tt><br></p>
+</div><p>Execute a search query. This command will return an error
+       unless executed against a Riak Search cluster.</p>
 
 <h3 class="function"><a name="set_bucket-3">set_bucket/3</a></h3>
 <div class="spec">
@@ -743,9 +616,15 @@
   <pre>         {ReqId::req_id(), {keys, [key()]}}
          {ReqId::req_id(), done}</pre>
   <em>This is a potentially expensive operation and should not be used in production.</em></p>
+
+<h3 class="function"><a name="tunnel-4">tunnel/4</a></h3>
+<div class="spec">
+<p><tt>tunnel(Pid::pid(), MsgId::<a href="#type-msg_id">msg_id()</a>, Pkt::binary(), Timeout::timeout()) -&gt; {ok, binary()} | {error, term()}</tt><br></p>
+</div><p>Send a pre-encoded msg over the protocol buffer connection
+  Returns {ok, Response} or {error, Reason}</p>
 <hr>
 
 <div class="navbar"><a name="#navbar_bottom"></a><table width="100%" border="0" cellspacing="0" cellpadding="2" summary="navigation bar"><tr><td><a href="overview-summary.html" target="overviewFrame">Overview</a></td><td><a href="http://www.erlang.org/"><img src="erlang.png" align="right" border="0" alt="erlang logo"></a></td></tr></table></div>
-<p><i>Generated by EDoc, Apr 7 2012, 15:38:39.</i></p>
+<p><i>Generated by EDoc, Aug 29 2012, 08:38:37.</i></p>
 </body>
 </html>
