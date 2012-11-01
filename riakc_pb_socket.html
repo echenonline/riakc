@@ -25,6 +25,74 @@
 <p><tt>address() = string() | atom() | <a href="inet.html#type-ip_address">inet:ip_address()</a></tt></p>
 <p>  The TCP/IP host name or address of the Riak node</p>
 
+<h3 class="typedecl"><a name="type-bucket">bucket()</a></h3>
+<p><tt>bucket() = binary()</tt></p>
+
+
+<h3 class="typedecl"><a name="type-bucket_prop">bucket_prop()</a></h3>
+<p><tt>bucket_prop() = {n_val, pos_integer()} | {allow_mult, boolean()}</tt></p>
+
+
+<h3 class="typedecl"><a name="type-bucket_props">bucket_props()</a></h3>
+<p><tt>bucket_props() = [<a href="#type-bucket_prop">bucket_prop()</a>]</tt></p>
+
+
+<h3 class="typedecl"><a name="type-client_id">client_id()</a></h3>
+<p><tt>client_id() = binary()</tt></p>
+
+
+<h3 class="typedecl"><a name="type-client_option">client_option()</a></h3>
+<p><tt>client_option() = queue_if_disconnected | {queue_if_disconnected, boolean()} | auto_reconnect | {auto_reconnect, boolean()}</tt></p>
+
+
+<h3 class="typedecl"><a name="type-client_options">client_options()</a></h3>
+<p><tt>client_options() = [<a href="#type-client_option">client_option()</a>]</tt></p>
+
+
+<h3 class="typedecl"><a name="type-connection_failure">connection_failure()</a></h3>
+<p><tt>connection_failure() = {Reason::term(), FailureCount::integer()}</tt></p>
+
+
+<h3 class="typedecl"><a name="type-delete_options">delete_options()</a></h3>
+<p><tt>delete_options() = [<a href="#type-delete_quorum">delete_quorum()</a>]</tt></p>
+
+
+<h3 class="typedecl"><a name="type-delete_quorum">delete_quorum()</a></h3>
+<p><tt>delete_quorum() = <a href="#type-read_quorum">read_quorum()</a> | <a href="#type-write_quorum">write_quorum()</a> | {rw, ReadWriteQuorum::<a href="#type-quorum">quorum()</a>}</tt></p>
+
+
+<h3 class="typedecl"><a name="type-get_option">get_option()</a></h3>
+<p><tt>get_option() = <a href="#type-read_quorum">read_quorum()</a> | {if_modified, <a href="riakc_obj.html#type-vclock">riakc_obj:vclock()</a>} | {notfound_ok, boolean()} | {basic_quorum, boolean()} | head | deletedvclock</tt></p>
+
+
+<h3 class="typedecl"><a name="type-get_options">get_options()</a></h3>
+<p><tt>get_options() = [<a href="#type-get_option">get_option()</a>]</tt></p>
+
+
+<h3 class="typedecl"><a name="type-index_result">index_result()</a></h3>
+<p><tt>index_result() = [<a href="#type-key">key()</a>]</tt></p>
+
+
+<h3 class="typedecl"><a name="type-key">key()</a></h3>
+<p><tt>key() = binary()</tt></p>
+
+
+<h3 class="typedecl"><a name="type-mapred_funterm">mapred_funterm()</a></h3>
+<p><tt>mapred_funterm() = {modfun, Module::atom(), Function::atom()} | {qfun, function()} | {strfun, list() | binary()} | {jsanon, binary() | {<a href="#type-bucket">bucket()</a>, <a href="#type-key">key()</a>}} | {jsfun, binary()}</tt></p>
+
+
+<h3 class="typedecl"><a name="type-mapred_inputs">mapred_inputs()</a></h3>
+<p><tt>mapred_inputs() = [{<a href="#type-bucket">bucket()</a>, <a href="#type-key">key()</a>} | {{<a href="#type-bucket">bucket()</a>, <a href="#type-key">key()</a>}, term()}] | {modfun, Module::atom(), Function::atom(), [term()]} | <a href="#type-bucket">bucket()</a> | {index, <a href="#type-bucket">bucket()</a>, Index::binary(), <a href="#type-key">key()</a>} | {index, <a href="#type-bucket">bucket()</a>, Index::binary(), StartKey::<a href="#type-key">key()</a>, EndKey::<a href="#type-key">key()</a>}</tt></p>
+
+
+<h3 class="typedecl"><a name="type-mapred_queryterm">mapred_queryterm()</a></h3>
+<p><tt>mapred_queryterm() = {map, <a href="#type-mapred_funterm">mapred_funterm()</a>, Arg::term(), Accumulate::boolean()} | {reduce, <a href="#type-mapred_funterm">mapred_funterm()</a>, Arg::term(), Accumulate::boolean()} | {link, Bucket::<a href="riakc_obj.html#type-bucket">riakc_obj:bucket()</a>, Tag::term(), Accumulate::boolean()}</tt></p>
+
+
+<h3 class="typedecl"><a name="type-mapred_result">mapred_result()</a></h3>
+<p><tt>mapred_result() = [term()]</tt></p>
+
+
 <h3 class="typedecl"><a name="type-msg_id">msg_id()</a></h3>
 <p><tt>msg_id() = non_neg_integer()</tt></p>
 <p>  Request identifier for tunneled message types</p>
@@ -32,6 +100,58 @@
 <h3 class="typedecl"><a name="type-portnum">portnum()</a></h3>
 <p><tt>portnum() = non_neg_integer()</tt></p>
 <p>  The TCP port number of the Riak node's Protocol Buffers interface</p>
+
+<h3 class="typedecl"><a name="type-put_option">put_option()</a></h3>
+<p><tt>put_option() = <a href="#type-write_quorum">write_quorum()</a> | return_body | return_head | if_not_modified | if_none_match</tt></p>
+
+
+<h3 class="typedecl"><a name="type-put_options">put_options()</a></h3>
+<p><tt>put_options() = [<a href="#type-put_option">put_option()</a>]</tt></p>
+
+
+<h3 class="typedecl"><a name="type-quorum">quorum()</a></h3>
+<p><tt>quorum() = non_neg_integer() | one | all | quorum | default</tt></p>
+
+
+<h3 class="typedecl"><a name="type-read_quorum">read_quorum()</a></h3>
+<p><tt>read_quorum() = {r, ReadQuorum::<a href="#type-quorum">quorum()</a>} | {pr, PrimaryReadQuorum::<a href="#type-quorum">quorum()</a>}</tt></p>
+
+
+<h3 class="typedecl"><a name="type-req_id">req_id()</a></h3>
+<p><tt>req_id() = non_neg_integer()</tt></p>
+
+
+<h3 class="typedecl"><a name="type-riakc_obj">riakc_obj()</a></h3>
+<p><tt>riakc_obj() = <a href="riakc_obj.html#type-riakc_obj">riakc_obj:riakc_obj()</a></tt></p>
+
+
+<h3 class="typedecl"><a name="type-search_option">search_option()</a></h3>
+<p><tt>search_option() = {rows, non_neg_integer()} | {start, non_neg_integer()} | {sort, binary()} | {filter, binary()} | {df, binary()} | {op, binary()} | {fl, [binary()]} | {presort, binary()}</tt></p>
+
+
+<h3 class="typedecl"><a name="type-search_options">search_options()</a></h3>
+<p><tt>search_options() = [<a href="#type-search_option">search_option()</a>]</tt></p>
+
+
+<h3 class="typedecl"><a name="type-search_result">search_result()</a></h3>
+<p><tt>search_result() = #search_results{}</tt></p>
+
+
+<h3 class="typedecl"><a name="type-server_info">server_info()</a></h3>
+<p><tt>server_info() = [<a href="#type-server_prop">server_prop()</a>]</tt></p>
+
+
+<h3 class="typedecl"><a name="type-server_prop">server_prop()</a></h3>
+<p><tt>server_prop() = {node, binary()} | {server_version, binary()}</tt></p>
+
+
+<h3 class="typedecl"><a name="type-timeout_name">timeout_name()</a></h3>
+<p><tt>timeout_name() = ping_timeout | get_client_id_timeout | set_client_id_timeout | get_server_info_timeout | get_timeout | put_timeout | delete_timeout | list_buckets_timeout | list_buckets_call_timeout | list_keys_timeout | stream_list_keys_timeout | stream_list_keys_call_timeout | get_bucket_timeout | get_bucket_call_timeout | set_bucket_timeout | set_bucket_call_timeout | mapred_timeout | mapred_call_timeout | mapred_stream_timeout | mapred_stream_call_timeout | mapred_bucket_timeout | mapred_bucket_call_timeout | mapred_bucket_stream_call_timeout | search_timeout | search_call_timeout | timeout</tt></p>
+
+
+<h3 class="typedecl"><a name="type-write_quorum">write_quorum()</a></h3>
+<p><tt>write_quorum() = {w, WriteQuorum::<a href="#type-quorum">quorum()</a>} | {dw, DurableWriteQuorum::<a href="#type-quorum">quorum()</a>} | {pw, PrimaryWriteQuorum::<a href="#type-quorum">quorum()</a>}</tt></p>
+
 
 <h2><a name="index">Function Index</a></h2>
 <table width="100%" border="1" cellspacing="0" cellpadding="2" summary="function index"><tr><td valign="top"><a href="#default_timeout-1">default_timeout/1</a></td><td>Return the default timeout for an operation if none is provided.</td></tr>
@@ -463,14 +583,14 @@
 
 <h3 class="function"><a name="put-3">put/3</a></h3>
 <div class="spec">
-<p><tt>put(Pid::pid(), Obj::<a href="#type-riakc_obj">riakc_obj()</a>, TimeoutOrOptions::timeout() | <a href="#type-put_options">put_options()</a>) -&gt; ok | {ok, <a href="#type-riakc_obj">riakc_obj()</a>} | {ok, <a href="#type-key">key()</a>} | {error, term()}</tt><br></p>
+<p><tt>put(Pid::pid(), Obj::<a href="#type-riakc_obj">riakc_obj()</a>, TimeoutOrOptions::timeout() | <a href="#type-put_options">put_options()</a>) -&gt; ok | {ok, <a href="#type-riakc_obj">riakc_obj()</a>} | <a href="#type-riakc_obj">riakc_obj()</a> | {ok, <a href="#type-key">key()</a>} | {error, term()}</tt><br></p>
 </div><p>Equivalent to <a href="#put-4"><tt>put(Pid, Obj, Options, Timeout)</tt></a>.</p>
 <p>Put the metadata/value in the object under bucket/key with options or timeout.</p>
 <p><b>See also:</b> <a href="#put-4">put/4</a>.</p>
 
 <h3 class="function"><a name="put-4">put/4</a></h3>
 <div class="spec">
-<p><tt>put(Pid::pid(), Obj::<a href="#type-riakc_obj">riakc_obj()</a>, Options::<a href="#type-put_options">put_options()</a>, Timeout::timeout()) -&gt; ok | {ok, <a href="#type-riakc_obj">riakc_obj()</a>} | {ok, <a href="#type-key">key()</a>} | {error, term()}</tt><br></p>
+<p><tt>put(Pid::pid(), Obj::<a href="#type-riakc_obj">riakc_obj()</a>, Options::<a href="#type-put_options">put_options()</a>, Timeout::timeout()) -&gt; ok | {ok, <a href="#type-riakc_obj">riakc_obj()</a>} | <a href="#type-riakc_obj">riakc_obj()</a> | {ok, <a href="#type-key">key()</a>} | {error, term()}</tt><br></p>
 </div><p>throws <tt>siblings</tt></p>
 <p>Put the metadata/value in the object under bucket/key with
        options and timeout. Put throws <code>siblings</code> if the
@@ -619,6 +739,6 @@
 <hr>
 
 <div class="navbar"><a name="#navbar_bottom"></a><table width="100%" border="0" cellspacing="0" cellpadding="2" summary="navigation bar"><tr><td><a href="overview-summary.html" target="overviewFrame">Overview</a></td><td><a href="http://www.erlang.org/"><img src="erlang.png" align="right" border="0" alt="erlang logo"></a></td></tr></table></div>
-<p><i>Generated by EDoc, Sep 17 2012, 17:53:02.</i></p>
+<p><i>Generated by EDoc, Nov 1 2012, 15:19:50.</i></p>
 </body>
 </html>
