@@ -29,20 +29,8 @@
 <p><tt>bucket() = binary()</tt></p>
 
 
-<h3 class="typedecl"><a name="type-bucket">bucket()</a></h3>
-<p><tt>bucket() = binary()</tt></p>
-
-
 <h3 class="typedecl"><a name="type-bucket_prop">bucket_prop()</a></h3>
 <p><tt>bucket_prop() = {n_val, pos_integer()} | {allow_mult, boolean()}</tt></p>
-
-
-<h3 class="typedecl"><a name="type-bucket_prop">bucket_prop()</a></h3>
-<p><tt>bucket_prop() = {n_val, pos_integer()} | {allow_mult, boolean()}</tt></p>
-
-
-<h3 class="typedecl"><a name="type-bucket_props">bucket_props()</a></h3>
-<p><tt>bucket_props() = [<a href="#type-bucket_prop">bucket_prop()</a>]</tt></p>
 
 
 <h3 class="typedecl"><a name="type-bucket_props">bucket_props()</a></h3>
@@ -53,14 +41,6 @@
 <p><tt>client_id() = binary()</tt></p>
 
 
-<h3 class="typedecl"><a name="type-client_id">client_id()</a></h3>
-<p><tt>client_id() = binary()</tt></p>
-
-
-<h3 class="typedecl"><a name="type-client_option">client_option()</a></h3>
-<p><tt>client_option() = queue_if_disconnected | {queue_if_disconnected, boolean()} | {connect_timeout, pos_integer()} | auto_reconnect | {auto_reconnect, boolean()}</tt></p>
-
-
 <h3 class="typedecl"><a name="type-client_option">client_option()</a></h3>
 <p><tt>client_option() = queue_if_disconnected | {queue_if_disconnected, boolean()} | {connect_timeout, pos_integer()} | auto_reconnect | {auto_reconnect, boolean()}</tt></p>
 
@@ -69,20 +49,8 @@
 <p><tt>client_options() = [<a href="#type-client_option">client_option()</a>]</tt></p>
 
 
-<h3 class="typedecl"><a name="type-client_options">client_options()</a></h3>
-<p><tt>client_options() = [<a href="#type-client_option">client_option()</a>]</tt></p>
-
-
 <h3 class="typedecl"><a name="type-connection_failure">connection_failure()</a></h3>
 <p><tt>connection_failure() = {Reason::term(), FailureCount::integer()}</tt></p>
-
-
-<h3 class="typedecl"><a name="type-connection_failure">connection_failure()</a></h3>
-<p><tt>connection_failure() = {Reason::term(), FailureCount::integer()}</tt></p>
-
-
-<h3 class="typedecl"><a name="type-continuation">continuation()</a></h3>
-<p><tt>continuation() = undefined | binary()</tt></p>
 
 
 <h3 class="typedecl"><a name="type-continuation">continuation()</a></h3>
@@ -101,14 +69,6 @@
 <p><tt>delete_option() = <a href="#type-delete_quorum">delete_quorum()</a> | {n_val, pos_integer()} | {sloppy_quorum, boolean()}</tt></p>
 
 
-<h3 class="typedecl"><a name="type-delete_option">delete_option()</a></h3>
-<p><tt>delete_option() = <a href="#type-delete_quorum">delete_quorum()</a> | {n_val, pos_integer()} | {sloppy_quorum, boolean()}</tt></p>
-
-
-<h3 class="typedecl"><a name="type-delete_options">delete_options()</a></h3>
-<p><tt>delete_options() = [<a href="#type-delete_option">delete_option()</a>]</tt></p>
-
-
 <h3 class="typedecl"><a name="type-delete_options">delete_options()</a></h3>
 <p><tt>delete_options() = [<a href="#type-delete_option">delete_option()</a>]</tt></p>
 
@@ -117,20 +77,8 @@
 <p><tt>delete_quorum() = <a href="#type-read_quorum">read_quorum()</a> | <a href="#type-write_quorum">write_quorum()</a> | {rw, ReadWriteQuorum::<a href="#type-quorum">quorum()</a>}</tt></p>
 
 
-<h3 class="typedecl"><a name="type-delete_quorum">delete_quorum()</a></h3>
-<p><tt>delete_quorum() = <a href="#type-read_quorum">read_quorum()</a> | <a href="#type-write_quorum">write_quorum()</a> | {rw, ReadWriteQuorum::<a href="#type-quorum">quorum()</a>}</tt></p>
-
-
 <h3 class="typedecl"><a name="type-get_option">get_option()</a></h3>
 <p><tt>get_option() = <a href="#type-read_quorum">read_quorum()</a> | {if_modified, <a href="riakc_obj.html#type-vclock">riakc_obj:vclock()</a>} | {notfound_ok, boolean()} | {basic_quorum, boolean()} | head | deletedvclock | {n_val, pos_integer()} | {sloppy_quorum, boolean()}</tt></p>
-
-
-<h3 class="typedecl"><a name="type-get_option">get_option()</a></h3>
-<p><tt>get_option() = <a href="#type-read_quorum">read_quorum()</a> | {if_modified, <a href="riakc_obj.html#type-vclock">riakc_obj:vclock()</a>} | {notfound_ok, boolean()} | {basic_quorum, boolean()} | head | deletedvclock | {n_val, pos_integer()} | {sloppy_quorum, boolean()}</tt></p>
-
-
-<h3 class="typedecl"><a name="type-get_options">get_options()</a></h3>
-<p><tt>get_options() = [<a href="#type-get_option">get_option()</a>]</tt></p>
 
 
 <h3 class="typedecl"><a name="type-get_options">get_options()</a></h3>
@@ -149,20 +97,8 @@
 <p><tt>index_results() = #index_results_v1{keys = undefined | <a href="#type-keys">keys()</a>, terms = undefined | <a href="#type-index_terms">index_terms()</a>, continuation = undefined | <a href="#type-continuation">continuation()</a>}</tt></p>
 
 
-<h3 class="typedecl"><a name="type-index_results">index_results()</a></h3>
-<p><tt>index_results() = #index_results_v1{keys = undefined | <a href="#type-keys">keys()</a>, terms = undefined | <a href="#type-index_terms">index_terms()</a>, continuation = undefined | <a href="#type-continuation">continuation()</a>}</tt></p>
-
-
 <h3 class="typedecl"><a name="type-index_term">index_term()</a></h3>
 <p><tt>index_term() = integer() | binary()</tt></p>
-
-
-<h3 class="typedecl"><a name="type-index_term">index_term()</a></h3>
-<p><tt>index_term() = integer() | binary()</tt></p>
-
-
-<h3 class="typedecl"><a name="type-index_terms">index_terms()</a></h3>
-<p><tt>index_terms() = [{<a href="#type-index_term">index_term()</a>, binary()}] | undefined</tt></p>
 
 
 <h3 class="typedecl"><a name="type-index_terms">index_terms()</a></h3>
@@ -173,20 +109,8 @@
 <p><tt>key() = binary()</tt></p>
 
 
-<h3 class="typedecl"><a name="type-key">key()</a></h3>
-<p><tt>key() = binary()</tt></p>
-
-
 <h3 class="typedecl"><a name="type-keys">keys()</a></h3>
 <p><tt>keys() = [binary()] | undefined</tt></p>
-
-
-<h3 class="typedecl"><a name="type-keys">keys()</a></h3>
-<p><tt>keys() = [binary()] | undefined</tt></p>
-
-
-<h3 class="typedecl"><a name="type-mapred_funterm">mapred_funterm()</a></h3>
-<p><tt>mapred_funterm() = {modfun, Module::atom(), Function::atom()} | {qfun, function()} | {strfun, list() | binary()} | {jsanon, binary() | {<a href="#type-bucket">bucket()</a>, <a href="#type-key">key()</a>}} | {jsfun, binary()}</tt></p>
 
 
 <h3 class="typedecl"><a name="type-mapred_funterm">mapred_funterm()</a></h3>
@@ -197,20 +121,8 @@
 <p><tt>mapred_inputs() = [{<a href="#type-bucket">bucket()</a>, <a href="#type-key">key()</a>} | {{<a href="#type-bucket">bucket()</a>, <a href="#type-key">key()</a>}, term()}] | {modfun, Module::atom(), Function::atom(), [term()]} | <a href="#type-bucket">bucket()</a> | {index, <a href="#type-bucket">bucket()</a>, Index::binary() | <a href="#type-secondary_index_id">secondary_index_id()</a>, <a href="#type-key">key()</a> | integer()} | {index, <a href="#type-bucket">bucket()</a>, Index::binary() | <a href="#type-secondary_index_id">secondary_index_id()</a>, StartKey::<a href="#type-key">key()</a> | integer(), EndKey::<a href="#type-key">key()</a> | integer()}</tt></p>
 
 
-<h3 class="typedecl"><a name="type-mapred_inputs">mapred_inputs()</a></h3>
-<p><tt>mapred_inputs() = [{<a href="#type-bucket">bucket()</a>, <a href="#type-key">key()</a>} | {{<a href="#type-bucket">bucket()</a>, <a href="#type-key">key()</a>}, term()}] | {modfun, Module::atom(), Function::atom(), [term()]} | <a href="#type-bucket">bucket()</a> | {index, <a href="#type-bucket">bucket()</a>, Index::binary() | <a href="#type-secondary_index_id">secondary_index_id()</a>, <a href="#type-key">key()</a> | integer()} | {index, <a href="#type-bucket">bucket()</a>, Index::binary() | <a href="#type-secondary_index_id">secondary_index_id()</a>, StartKey::<a href="#type-key">key()</a> | integer(), EndKey::<a href="#type-key">key()</a> | integer()}</tt></p>
-
-
 <h3 class="typedecl"><a name="type-mapred_queryterm">mapred_queryterm()</a></h3>
 <p><tt>mapred_queryterm() = {map, <a href="#type-mapred_funterm">mapred_funterm()</a>, Arg::term(), Accumulate::boolean()} | {reduce, <a href="#type-mapred_funterm">mapred_funterm()</a>, Arg::term(), Accumulate::boolean()} | {link, Bucket::<a href="riakc_obj.html#type-bucket">riakc_obj:bucket()</a>, Tag::term(), Accumulate::boolean()}</tt></p>
-
-
-<h3 class="typedecl"><a name="type-mapred_queryterm">mapred_queryterm()</a></h3>
-<p><tt>mapred_queryterm() = {map, <a href="#type-mapred_funterm">mapred_funterm()</a>, Arg::term(), Accumulate::boolean()} | {reduce, <a href="#type-mapred_funterm">mapred_funterm()</a>, Arg::term(), Accumulate::boolean()} | {link, Bucket::<a href="riakc_obj.html#type-bucket">riakc_obj:bucket()</a>, Tag::term(), Accumulate::boolean()}</tt></p>
-
-
-<h3 class="typedecl"><a name="type-mapred_result">mapred_result()</a></h3>
-<p><tt>mapred_result() = [term()]</tt></p>
 
 
 <h3 class="typedecl"><a name="type-mapred_result">mapred_result()</a></h3>
@@ -229,20 +141,8 @@
 <p><tt>put_option() = <a href="#type-write_quorum">write_quorum()</a> | return_body | return_head | if_not_modified | if_none_match | {n_val, pos_integer()} | {sloppy_quorum, boolean()}</tt></p>
 
 
-<h3 class="typedecl"><a name="type-put_option">put_option()</a></h3>
-<p><tt>put_option() = <a href="#type-write_quorum">write_quorum()</a> | return_body | return_head | if_not_modified | if_none_match | {n_val, pos_integer()} | {sloppy_quorum, boolean()}</tt></p>
-
-
 <h3 class="typedecl"><a name="type-put_options">put_options()</a></h3>
 <p><tt>put_options() = [<a href="#type-put_option">put_option()</a>]</tt></p>
-
-
-<h3 class="typedecl"><a name="type-put_options">put_options()</a></h3>
-<p><tt>put_options() = [<a href="#type-put_option">put_option()</a>]</tt></p>
-
-
-<h3 class="typedecl"><a name="type-quorum">quorum()</a></h3>
-<p><tt>quorum() = non_neg_integer() | one | all | quorum | default</tt></p>
 
 
 <h3 class="typedecl"><a name="type-quorum">quorum()</a></h3>
@@ -261,14 +161,6 @@
 <p><tt>read_quorum() = {r, ReadQuorum::<a href="#type-quorum">quorum()</a>} | {pr, PrimaryReadQuorum::<a href="#type-quorum">quorum()</a>}</tt></p>
 
 
-<h3 class="typedecl"><a name="type-read_quorum">read_quorum()</a></h3>
-<p><tt>read_quorum() = {r, ReadQuorum::<a href="#type-quorum">quorum()</a>} | {pr, PrimaryReadQuorum::<a href="#type-quorum">quorum()</a>}</tt></p>
-
-
-<h3 class="typedecl"><a name="type-req_id">req_id()</a></h3>
-<p><tt>req_id() = non_neg_integer()</tt></p>
-
-
 <h3 class="typedecl"><a name="type-req_id">req_id()</a></h3>
 <p><tt>req_id() = non_neg_integer()</tt></p>
 
@@ -277,20 +169,20 @@
 <p><tt>riakc_obj() = <a href="riakc_obj.html#type-riakc_obj">riakc_obj:riakc_obj()</a></tt></p>
 
 
-<h3 class="typedecl"><a name="type-riakc_obj">riakc_obj()</a></h3>
-<p><tt>riakc_obj() = <a href="riakc_obj.html#type-riakc_obj">riakc_obj:riakc_obj()</a></tt></p>
+<h3 class="typedecl"><a name="type-search_admin_opt">search_admin_opt()</a></h3>
+<p><tt>search_admin_opt() = {timeout, timeout()} | {call_timeout, timeout()}</tt></p>
+
+
+<h3 class="typedecl"><a name="type-search_admin_opts">search_admin_opts()</a></h3>
+<p><tt>search_admin_opts() = [<a href="#type-search_admin_opt">search_admin_opt()</a>]</tt></p>
 
 
 <h3 class="typedecl"><a name="type-search_doc">search_doc()</a></h3>
 <p><tt>search_doc() = [{binary(), binary()}]</tt></p>
 
 
-<h3 class="typedecl"><a name="type-search_doc">search_doc()</a></h3>
-<p><tt>search_doc() = [{binary(), binary()}]</tt></p>
-
-
-<h3 class="typedecl"><a name="type-search_option">search_option()</a></h3>
-<p><tt>search_option() = {rows, non_neg_integer()} | {start, non_neg_integer()} | {sort, binary()} | {filter, binary()} | {df, binary()} | {op, binary()} | {fl, [binary()]} | {presort, binary()}</tt></p>
+<h3 class="typedecl"><a name="type-search_index">search_index()</a></h3>
+<p><tt>search_index() = [{index, binary()} | {schema, binary()}]</tt></p>
 
 
 <h3 class="typedecl"><a name="type-search_option">search_option()</a></h3>
@@ -301,20 +193,12 @@
 <p><tt>search_options() = [<a href="#type-search_option">search_option()</a>]</tt></p>
 
 
-<h3 class="typedecl"><a name="type-search_options">search_options()</a></h3>
-<p><tt>search_options() = [<a href="#type-search_option">search_option()</a>]</tt></p>
-
-
 <h3 class="typedecl"><a name="type-search_result">search_result()</a></h3>
 <p><tt>search_result() = #search_results{docs = undefined | [<a href="#type-search_doc">search_doc()</a>], max_score = undefined | float(), num_found = undefined | non_neg_integer()}</tt></p>
 
 
-<h3 class="typedecl"><a name="type-search_result">search_result()</a></h3>
-<p><tt>search_result() = #search_results{docs = undefined | [<a href="#type-search_doc">search_doc()</a>], max_score = undefined | float(), num_found = undefined | non_neg_integer()}</tt></p>
-
-
-<h3 class="typedecl"><a name="type-secondary_index_id">secondary_index_id()</a></h3>
-<p><tt>secondary_index_id() = {binary_index, string()} | {integer_index, string()}</tt></p>
+<h3 class="typedecl"><a name="type-search_schema">search_schema()</a></h3>
+<p><tt>search_schema() = [{name, binary()} | {content, binary()}]</tt></p>
 
 
 <h3 class="typedecl"><a name="type-secondary_index_id">secondary_index_id()</a></h3>
@@ -325,28 +209,12 @@
 <p><tt>server_info() = [<a href="#type-server_prop">server_prop()</a>]</tt></p>
 
 
-<h3 class="typedecl"><a name="type-server_info">server_info()</a></h3>
-<p><tt>server_info() = [<a href="#type-server_prop">server_prop()</a>]</tt></p>
-
-
-<h3 class="typedecl"><a name="type-server_prop">server_prop()</a></h3>
-<p><tt>server_prop() = {node, binary()} | {server_version, binary()}</tt></p>
-
-
 <h3 class="typedecl"><a name="type-server_prop">server_prop()</a></h3>
 <p><tt>server_prop() = {node, binary()} | {server_version, binary()}</tt></p>
 
 
 <h3 class="typedecl"><a name="type-timeout_name">timeout_name()</a></h3>
 <p><tt>timeout_name() = ping_timeout | get_client_id_timeout | set_client_id_timeout | get_server_info_timeout | get_timeout | put_timeout | delete_timeout | list_buckets_timeout | list_buckets_call_timeout | list_keys_timeout | stream_list_keys_timeout | stream_list_keys_call_timeout | get_bucket_timeout | get_bucket_call_timeout | set_bucket_timeout | set_bucket_call_timeout | mapred_timeout | mapred_call_timeout | mapred_stream_timeout | mapred_stream_call_timeout | mapred_bucket_timeout | mapred_bucket_call_timeout | mapred_bucket_stream_call_timeout | search_timeout | search_call_timeout | timeout</tt></p>
-
-
-<h3 class="typedecl"><a name="type-timeout_name">timeout_name()</a></h3>
-<p><tt>timeout_name() = ping_timeout | get_client_id_timeout | set_client_id_timeout | get_server_info_timeout | get_timeout | put_timeout | delete_timeout | list_buckets_timeout | list_buckets_call_timeout | list_keys_timeout | stream_list_keys_timeout | stream_list_keys_call_timeout | get_bucket_timeout | get_bucket_call_timeout | set_bucket_timeout | set_bucket_call_timeout | mapred_timeout | mapred_call_timeout | mapred_stream_timeout | mapred_stream_call_timeout | mapred_bucket_timeout | mapred_bucket_call_timeout | mapred_bucket_stream_call_timeout | search_timeout | search_call_timeout | timeout</tt></p>
-
-
-<h3 class="typedecl"><a name="type-write_quorum">write_quorum()</a></h3>
-<p><tt>write_quorum() = {w, WriteQuorum::<a href="#type-quorum">quorum()</a>} | {dw, DurableWriteQuorum::<a href="#type-quorum">quorum()</a>} | {pw, PrimaryWriteQuorum::<a href="#type-quorum">quorum()</a>}</tt></p>
 
 
 <h3 class="typedecl"><a name="type-write_quorum">write_quorum()</a></h3>
@@ -359,6 +227,10 @@
 <tr><td valign="top"><a href="#counter_val-3">counter_val/3</a></td><td>get the current value of the counter at <code>Bucket</code>, <code>Key</code>.</td></tr>
 <tr><td valign="top"><a href="#counter_val-4">counter_val/4</a></td><td>get the current value of the counter at <code>Bucket</code>, <code>Key</code> using
   the <code>read_qurom()</code> <code>Options</code> provided.</td></tr>
+<tr><td valign="top"><a href="#create_search_index-2">create_search_index/2</a></td><td>Create a search index.</td></tr>
+<tr><td valign="top"><a href="#create_search_index-4">create_search_index/4</a></td><td>Create a search index.</td></tr>
+<tr><td valign="top"><a href="#create_search_schema-3">create_search_schema/3</a></td><td>Create a schema, which is a required component of an index.</td></tr>
+<tr><td valign="top"><a href="#create_search_schema-4">create_search_schema/4</a></td><td>Create a schema, which is a required component of an index.</td></tr>
 <tr><td valign="top"><a href="#cs_bucket_fold-3">cs_bucket_fold/3</a></td><td>secret function, do not use, or I come to your house and keeel you.</td></tr>
 <tr><td valign="top"><a href="#default_timeout-1">default_timeout/1</a></td><td>Return the default timeout for an operation if none is provided.</td></tr>
 <tr><td valign="top"><a href="#delete-3">delete/3</a></td><td>Delete the key/value.</td></tr>
@@ -367,16 +239,24 @@
 <tr><td valign="top"><a href="#delete_obj-2">delete_obj/2</a></td><td>Delete the riak object.</td></tr>
 <tr><td valign="top"><a href="#delete_obj-3">delete_obj/3</a></td><td>Delete the riak object with options.</td></tr>
 <tr><td valign="top"><a href="#delete_obj-4">delete_obj/4</a></td><td>Delete the riak object with options and timeout.</td></tr>
+<tr><td valign="top"><a href="#delete_search_index-2">delete_search_index/2</a></td><td>Create a search index.</td></tr>
+<tr><td valign="top"><a href="#delete_search_index-3">delete_search_index/3</a></td><td>Create a search index.</td></tr>
 <tr><td valign="top"><a href="#delete_vclock-4">delete_vclock/4</a></td><td>Delete the object at Bucket/Key, giving the vector clock.</td></tr>
 <tr><td valign="top"><a href="#delete_vclock-5">delete_vclock/5</a></td><td>Delete the object at Bucket/Key, specifying timeout or options and giving the vector clock.</td></tr>
 <tr><td valign="top"><a href="#delete_vclock-6">delete_vclock/6</a></td><td>Delete the key/value with options and timeout and giving the
   vector clock.</td></tr>
+<tr><td valign="top"><a href="#fetch_type-3">fetch_type/3</a></td><td>Fetches the representation of a convergent datatype from Riak.</td></tr>
+<tr><td valign="top"><a href="#fetch_type-4">fetch_type/4</a></td><td>Fetches the representation of a convergent datatype from Riak,
+  using the given request options.</td></tr>
 <tr><td valign="top"><a href="#get-3">get/3</a></td><td>Get bucket/key from the server.</td></tr>
 <tr><td valign="top"><a href="#get-4">get/4</a></td><td>Get bucket/key from the server specifying timeout.</td></tr>
 <tr><td valign="top"><a href="#get-5">get/5</a></td><td>Get bucket/key from the server supplying options and timeout.</td></tr>
 <tr><td valign="top"><a href="#get_bucket-2">get_bucket/2</a></td><td>Get bucket properties.</td></tr>
 <tr><td valign="top"><a href="#get_bucket-3">get_bucket/3</a></td><td>Get bucket properties specifying a server side timeout.</td></tr>
 <tr><td valign="top"><a href="#get_bucket-4">get_bucket/4</a></td><td>Get bucket properties specifying a server side and local call timeout.</td></tr>
+<tr><td valign="top"><a href="#get_bucket_type-2">get_bucket_type/2</a></td><td></td></tr>
+<tr><td valign="top"><a href="#get_bucket_type-3">get_bucket_type/3</a></td><td></td></tr>
+<tr><td valign="top"><a href="#get_bucket_type-4">get_bucket_type/4</a></td><td></td></tr>
 <tr><td valign="top"><a href="#get_client_id-1">get_client_id/1</a></td><td>Get the client id for this connection.</td></tr>
 <tr><td valign="top"><a href="#get_client_id-2">get_client_id/2</a></td><td>Get the client id for this connection specifying timeout.</td></tr>
 <tr><td valign="top"><a href="#get_index-4">get_index/4</a></td><td>(<em>Deprecated</em>.) Execute a secondary index equality query.</td></tr>
@@ -398,6 +278,10 @@
   </dl></td></tr>
 <tr><td valign="top"><a href="#get_index_range-5">get_index_range/5</a></td><td>Execute a secondary index range query.</td></tr>
 <tr><td valign="top"><a href="#get_index_range-6">get_index_range/6</a></td><td>Execute a secondary index range query with specified options.</td></tr>
+<tr><td valign="top"><a href="#get_search_index-2">get_search_index/2</a></td><td></td></tr>
+<tr><td valign="top"><a href="#get_search_index-3">get_search_index/3</a></td><td></td></tr>
+<tr><td valign="top"><a href="#get_search_schema-2">get_search_schema/2</a></td><td></td></tr>
+<tr><td valign="top"><a href="#get_search_schema-3">get_search_schema/3</a></td><td></td></tr>
 <tr><td valign="top"><a href="#get_server_info-1">get_server_info/1</a></td><td>Get the server information for this connection.</td></tr>
 <tr><td valign="top"><a href="#get_server_info-2">get_server_info/2</a></td><td>Get the server information for this connection specifying timeout.</td></tr>
 <tr><td valign="top"><a href="#is_connected-1">is_connected/1</a></td><td>Determines whether the client is connected.</td></tr>
@@ -406,9 +290,12 @@
 <tr><td valign="top"><a href="#legacy_list_buckets-2">legacy_list_buckets/2</a></td><td></td></tr>
 <tr><td valign="top"><a href="#list_buckets-1">list_buckets/1</a></td><td>List all buckets on the server.</td></tr>
 <tr><td valign="top"><a href="#list_buckets-2">list_buckets/2</a></td><td>List all buckets on the server specifying server-side timeout.</td></tr>
+<tr><td valign="top"><a href="#list_buckets-3">list_buckets/3</a></td><td></td></tr>
 <tr><td valign="top"><a href="#list_keys-2">list_keys/2</a></td><td>List all keys in a bucket
   <em>This is a potentially expensive operation and should not be used in production.</em></td></tr>
 <tr><td valign="top"><a href="#list_keys-3">list_keys/3</a></td><td>List all keys in a bucket specifying timeout.</td></tr>
+<tr><td valign="top"><a href="#list_search_indexes-1">list_search_indexes/1</a></td><td></td></tr>
+<tr><td valign="top"><a href="#list_search_indexes-2">list_search_indexes/2</a></td><td></td></tr>
 <tr><td valign="top"><a href="#mapred-3">mapred/3</a></td><td>Perform a MapReduce job across the cluster.</td></tr>
 <tr><td valign="top"><a href="#mapred-4">mapred/4</a></td><td>Perform a MapReduce job across the cluster with a job timeout.</td></tr>
 <tr><td valign="top"><a href="#mapred-5">mapred/5</a></td><td>Perform a MapReduce job across the cluster with a job and
@@ -427,6 +314,8 @@
 <tr><td valign="top"><a href="#mapred_stream-5">mapred_stream/5</a></td><td>Perform a streaming MapReduce job with a timeout across the cluster.</td></tr>
 <tr><td valign="top"><a href="#mapred_stream-6">mapred_stream/6</a></td><td>Perform a streaming MapReduce job with a map/red timeout across the cluster,
        a local call timeout and sending results to ClientPid.</td></tr>
+<tr><td valign="top"><a href="#modify_type-5">modify_type/5</a></td><td>Fetches, applies the given function to the value, and then
+  updates the datatype in Riak.</td></tr>
 <tr><td valign="top"><a href="#ping-1">ping/1</a></td><td>Ping the server.</td></tr>
 <tr><td valign="top"><a href="#ping-2">ping/2</a></td><td>Ping the server specifying timeout.</td></tr>
 <tr><td valign="top"><a href="#put-2">put/2</a></td><td>Put the metadata/value in the object under bucket/key.</td></tr>
@@ -436,6 +325,9 @@
 <tr><td valign="top"><a href="#reset_bucket-2">reset_bucket/2</a></td><td>Reset bucket properties back to the defaults.</td></tr>
 <tr><td valign="top"><a href="#reset_bucket-3">reset_bucket/3</a></td><td>Reset bucket properties back to the defaults.</td></tr>
 <tr><td valign="top"><a href="#reset_bucket-4">reset_bucket/4</a></td><td>Reset bucket properties back to the defaults.</td></tr>
+<tr><td valign="top"><a href="#reset_bucket_type-2">reset_bucket_type/2</a></td><td></td></tr>
+<tr><td valign="top"><a href="#reset_bucket_type-3">reset_bucket_type/3</a></td><td></td></tr>
+<tr><td valign="top"><a href="#reset_bucket_type-4">reset_bucket_type/4</a></td><td></td></tr>
 <tr><td valign="top"><a href="#search-3">search/3</a></td><td>Execute a search query.</td></tr>
 <tr><td valign="top"><a href="#search-4">search/4</a></td><td>Execute a search query.</td></tr>
 <tr><td valign="top"><a href="#search-5">search/5</a></td><td>Execute a search query.</td></tr>
@@ -443,10 +335,14 @@
 <tr><td valign="top"><a href="#set_bucket-3">set_bucket/3</a></td><td>Set bucket properties.</td></tr>
 <tr><td valign="top"><a href="#set_bucket-4">set_bucket/4</a></td><td>Set bucket properties specifying a server side timeout.</td></tr>
 <tr><td valign="top"><a href="#set_bucket-5">set_bucket/5</a></td><td>Set bucket properties specifying a server side and local call timeout.</td></tr>
+<tr><td valign="top"><a href="#set_bucket_type-3">set_bucket_type/3</a></td><td></td></tr>
+<tr><td valign="top"><a href="#set_bucket_type-4">set_bucket_type/4</a></td><td></td></tr>
+<tr><td valign="top"><a href="#set_bucket_type-5">set_bucket_type/5</a></td><td></td></tr>
 <tr><td valign="top"><a href="#set_client_id-2">set_client_id/2</a></td><td>Set the client id for this connection.</td></tr>
 <tr><td valign="top"><a href="#set_client_id-3">set_client_id/3</a></td><td>Set the client id for this connection specifying timeout.</td></tr>
 <tr><td valign="top"><a href="#set_options-2">set_options/2</a></td><td>Change the options for this socket.</td></tr>
 <tr><td valign="top"><a href="#set_options-3">set_options/3</a></td><td>Like set_options/2, but with a gen_server timeout.</td></tr>
+<tr><td valign="top"><a href="#set_search_index-3">set_search_index/3</a></td><td></td></tr>
 <tr><td valign="top"><a href="#start-2">start/2</a></td><td>Create a process to talk with the riak server on Address:Port.</td></tr>
 <tr><td valign="top"><a href="#start-3">start/3</a></td><td>Create a process to talk with the riak server on Address:Port with Options.</td></tr>
 <tr><td valign="top"><a href="#start_link-2">start_link/2</a></td><td>Create a linked process to talk with the riak server on Address:Port
@@ -455,11 +351,17 @@
 <tr><td valign="top"><a href="#stop-1">stop/1</a></td><td>Disconnect the socket and stop the process.</td></tr>
 <tr><td valign="top"><a href="#stream_list_buckets-1">stream_list_buckets/1</a></td><td></td></tr>
 <tr><td valign="top"><a href="#stream_list_buckets-2">stream_list_buckets/2</a></td><td></td></tr>
+<tr><td valign="top"><a href="#stream_list_buckets-3">stream_list_buckets/3</a></td><td></td></tr>
 <tr><td valign="top"><a href="#stream_list_keys-2">stream_list_keys/2</a></td><td>Stream list of keys in the bucket to the calling process.</td></tr>
 <tr><td valign="top"><a href="#stream_list_keys-3">stream_list_keys/3</a></td><td>Stream list of keys in the bucket to the calling process specifying server side
        timeout.</td></tr>
 <tr><td valign="top"><a href="#tunnel-4">tunnel/4</a></td><td>Send a pre-encoded msg over the protocol buffer connection
   Returns {ok, Response} or {error, Reason}.</td></tr>
+<tr><td valign="top"><a href="#update_type-4">update_type/4</a></td><td>Updates the convergent datatype in Riak with local
+  modifications stored in the container type.</td></tr>
+<tr><td valign="top"><a href="#update_type-5">update_type/5</a></td><td>Updates the convergent datatype in Riak with local
+  modifications stored in the container type, using the given request
+  options.</td></tr>
 </table>
 
 <h2><a name="functions">Function Details</a></h2>
@@ -487,6 +389,26 @@
 <p><tt>counter_val(Pid::pid(), Bucket::<a href="#type-bucket">bucket()</a>, Key::<a href="#type-key">key()</a>, Options::[<a href="#type-read_quorum">read_quorum()</a>]) -&gt; {ok, integer()} | {error, term()}</tt><br></p>
 </div><p>get the current value of the counter at <code>Bucket</code>, <code>Key</code> using
   the <code>read_qurom()</code> <code>Options</code> provided.</p>
+
+<h3 class="function"><a name="create_search_index-2">create_search_index/2</a></h3>
+<div class="spec">
+<p><tt>create_search_index(Pid::pid(), Index::binary()) -&gt; ok | {error, term()}</tt><br></p>
+</div><p>Create a search index.</p>
+
+<h3 class="function"><a name="create_search_index-4">create_search_index/4</a></h3>
+<div class="spec">
+<p><tt>create_search_index(Pid::pid(), Index::binary(), SchemaName::binary(), Opts::<a href="#type-search_admin_opts">search_admin_opts()</a>) -&gt; ok | {error, term()}</tt><br></p>
+</div><p>Create a search index.</p>
+
+<h3 class="function"><a name="create_search_schema-3">create_search_schema/3</a></h3>
+<div class="spec">
+<p><tt>create_search_schema(Pid::pid(), SchemaName::binary(), Content::binary()) -&gt; ok | {error, term()}</tt><br></p>
+</div><p>Create a schema, which is a required component of an index.</p>
+
+<h3 class="function"><a name="create_search_schema-4">create_search_schema/4</a></h3>
+<div class="spec">
+<p><tt>create_search_schema(Pid::pid(), SchemaName::binary(), Content::binary(), Opts::<a href="#type-search_admin_opts">search_admin_opts()</a>) -&gt; ok | {error, term()}</tt><br></p>
+</div><p>Create a schema, which is a required component of an index.</p>
 
 <h3 class="function"><a name="cs_bucket_fold-3">cs_bucket_fold/3</a></h3>
 <div class="spec">
@@ -541,6 +463,16 @@
 <p>Delete the riak object with options and timeout.</p>
 <p><b>See also:</b> <a href="#delete_vclock-6">delete_vclock/6</a>.</p>
 
+<h3 class="function"><a name="delete_search_index-2">delete_search_index/2</a></h3>
+<div class="spec">
+<p><tt>delete_search_index(Pid::pid(), Index::binary()) -&gt; ok | {error, term()}</tt><br></p>
+</div><p>Create a search index.</p>
+
+<h3 class="function"><a name="delete_search_index-3">delete_search_index/3</a></h3>
+<div class="spec">
+<p><tt>delete_search_index(Pid::pid(), Index::binary(), Opts::<a href="#type-search_admin_opts">search_admin_opts()</a>) -&gt; ok | {error, term()}</tt><br></p>
+</div><p>Create a search index.</p>
+
 <h3 class="function"><a name="delete_vclock-4">delete_vclock/4</a></h3>
 <div class="spec">
 <p><tt>delete_vclock(Pid::pid(), Bucket::<a href="#type-bucket">bucket()</a>, Key::<a href="#type-key">key()</a>, VClock::<a href="riakc_obj.html#type-vclock">riakc_obj:vclock()</a>) -&gt; ok | {error, term()}</tt><br></p>
@@ -561,6 +493,17 @@
   vector clock. This form of delete ensures that subsequent get and
   put requests will be correctly ordered with the delete.</p>
 <p><b>See also:</b> <a href="#delete_obj-4">delete_obj/4</a>.</p>
+
+<h3 class="function"><a name="fetch_type-3">fetch_type/3</a></h3>
+<div class="spec">
+<p><tt>fetch_type(Pid::pid(), BucketAndType::{BucketType::binary(), Bucket::binary()}, Key::binary()) -&gt; {ok, <a href="riakc_datatype.html#type-datatype">riakc_datatype:datatype()</a>} | {error, term()}</tt><br></p>
+</div><p>Fetches the representation of a convergent datatype from Riak.</p>
+
+<h3 class="function"><a name="fetch_type-4">fetch_type/4</a></h3>
+<div class="spec">
+<p><tt>fetch_type(Pid::pid(), BucketAndType::{BucketType::binary(), Bucket::binary()}, Key::binary(), Options::[<a href="proplists.html#type-property">proplists:property()</a>]) -&gt; {ok, <a href="riakc_datatype.html#type-datatype">riakc_datatype:datatype()</a>} | {error, term()}</tt><br></p>
+</div><p>Fetches the representation of a convergent datatype from Riak,
+  using the given request options.</p>
 
 <h3 class="function"><a name="get-3">get/3</a></h3>
 <div class="spec">
@@ -602,6 +545,21 @@
 <div class="spec">
 <p><tt>get_bucket(Pid::pid(), Bucket::<a href="#type-bucket">bucket()</a>, Timeout::timeout(), CallTimeout::timeout()) -&gt; {ok, <a href="#type-bucket_props">bucket_props()</a>} | {error, term()}</tt><br></p>
 </div><p>Get bucket properties specifying a server side and local call timeout.</p>
+
+<h3 class="function"><a name="get_bucket_type-2">get_bucket_type/2</a></h3>
+<div class="spec">
+<p><tt>get_bucket_type(Pid, BucketType) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="get_bucket_type-3">get_bucket_type/3</a></h3>
+<div class="spec">
+<p><tt>get_bucket_type(Pid, BucketType, Timeout) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="get_bucket_type-4">get_bucket_type/4</a></h3>
+<div class="spec">
+<p><tt>get_bucket_type(Pid, BucketType, Timeout, CallTimeout) -&gt; any()</tt></p>
+</div>
 
 <h3 class="function"><a name="get_client_id-1">get_client_id/1</a></h3>
 <div class="spec">
@@ -685,6 +643,26 @@
   <code>{results, [{value, primary_key}]}</code></p>
 <p><b>See also:</b> <a href="#get_index_eq-5">for effect of options.</a>.</p>
 
+<h3 class="function"><a name="get_search_index-2">get_search_index/2</a></h3>
+<div class="spec">
+<p><tt>get_search_index(Pid::pid(), Index::binary()) -&gt; {ok, <a href="#type-search_index">search_index()</a>} | {error, term()}</tt><br></p>
+</div>
+
+<h3 class="function"><a name="get_search_index-3">get_search_index/3</a></h3>
+<div class="spec">
+<p><tt>get_search_index(Pid::pid(), Index::binary(), Opts::<a href="#type-search_admin_opts">search_admin_opts()</a>) -&gt; {ok, <a href="#type-search_index">search_index()</a>} | {error, term()}</tt><br></p>
+</div>
+
+<h3 class="function"><a name="get_search_schema-2">get_search_schema/2</a></h3>
+<div class="spec">
+<p><tt>get_search_schema(Pid::pid(), SchemaName::binary()) -&gt; {ok, <a href="#type-search_schema">search_schema()</a>} | {error, term()}</tt><br></p>
+</div>
+
+<h3 class="function"><a name="get_search_schema-3">get_search_schema/3</a></h3>
+<div class="spec">
+<p><tt>get_search_schema(Pid::pid(), SchemaName::binary(), Opts::<a href="#type-search_admin_opts">search_admin_opts()</a>) -&gt; {ok, <a href="#type-search_schema">search_schema()</a>} | {error, term()}</tt><br></p>
+</div>
+
 <h3 class="function"><a name="get_server_info-1">get_server_info/1</a></h3>
 <div class="spec">
 <p><tt>get_server_info(Pid::pid()) -&gt; {ok, <a href="#type-server_info">server_info()</a>} | {error, term()}</tt><br></p>
@@ -727,9 +705,14 @@
 
 <h3 class="function"><a name="list_buckets-2">list_buckets/2</a></h3>
 <div class="spec">
-<p><tt>list_buckets(Pid::pid(), Timeout::timeout() | list()) -&gt; {ok, [<a href="#type-bucket">bucket()</a>]} | {error, term()}</tt><br></p>
+<p><tt>list_buckets(Pid::pid(), Type::timeout() | list() | binary()) -&gt; {ok, [<a href="#type-bucket">bucket()</a>]} | {error, term()}</tt><br></p>
 </div><p>List all buckets on the server specifying server-side timeout.
   <em>This is a potentially expensive operation and should not be used in production.</em></p>
+
+<h3 class="function"><a name="list_buckets-3">list_buckets/3</a></h3>
+<div class="spec">
+<p><tt>list_buckets(Pid, Type, Options) -&gt; any()</tt></p>
+</div>
 
 <h3 class="function"><a name="list_keys-2">list_keys/2</a></h3>
 <div class="spec">
@@ -746,6 +729,16 @@
   implemented using <a href="#stream_list_keys-3"><code>stream_list_keys/3</code></a> and then waiting for
   the results to complete streaming.
   <em>This is a potentially expensive operation and should not be used in production.</em></p>
+
+<h3 class="function"><a name="list_search_indexes-1">list_search_indexes/1</a></h3>
+<div class="spec">
+<p><tt>list_search_indexes(Pid::pid()) -&gt; {ok, [<a href="#type-search_index">search_index()</a>]} | {error, term()}</tt><br></p>
+</div>
+
+<h3 class="function"><a name="list_search_indexes-2">list_search_indexes/2</a></h3>
+<div class="spec">
+<p><tt>list_search_indexes(Pid::pid(), Opts::<a href="#type-search_admin_opts">search_admin_opts()</a>) -&gt; {ok, [<a href="#type-search_index">search_index()</a>]} | {error, term()}</tt><br></p>
+</div>
 
 <h3 class="function"><a name="mapred-3">mapred/3</a></h3>
 <div class="spec">
@@ -857,6 +850,13 @@
   <pre>       {ReqId::req_id(), {mapred, Phase::non_neg_integer(), mapred_result()}}
        {ReqId::req_id(), done}</pre></p>
 
+<h3 class="function"><a name="modify_type-5">modify_type/5</a></h3>
+<div class="spec">
+<p><tt>modify_type(Pid::pid(), Fun::fun((<a href="riakc_datatype.html#type-datatype">riakc_datatype:datatype()</a>) -&gt; <a href="riakc_datatype.html#type-datatype">riakc_datatype:datatype()</a>), BucketAndType::{BucketType::binary(), Bucket::binary()}, Key::binary(), Options::[<a href="proplists.html#type-property">proplists:property()</a>]) -&gt; ok | {ok, <a href="riakc_datatype.html#type-datatype">riakc_datatype:datatype()</a>} | {error, term()}</tt><br></p>
+</div><p>Fetches, applies the given function to the value, and then
+  updates the datatype in Riak. If an existing value is not found,
+  but you want the updates to apply anyway, use the 'create' option.</p>
+
 <h3 class="function"><a name="ping-1">ping/1</a></h3>
 <div class="spec">
 <p><tt>ping(Pid::pid()) -&gt; pong</tt><br></p>
@@ -914,6 +914,21 @@
 <p><tt>reset_bucket(Pid::pid(), Bucket::bucket, Timeout::timeout(), CallTimeout::timeout()) -&gt; ok | {error, term()}</tt><br></p>
 </div><p>Reset bucket properties back to the defaults.</p>
 
+<h3 class="function"><a name="reset_bucket_type-2">reset_bucket_type/2</a></h3>
+<div class="spec">
+<p><tt>reset_bucket_type(Pid, BucketType) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="reset_bucket_type-3">reset_bucket_type/3</a></h3>
+<div class="spec">
+<p><tt>reset_bucket_type(Pid, BucketType, Timeout) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="reset_bucket_type-4">reset_bucket_type/4</a></h3>
+<div class="spec">
+<p><tt>reset_bucket_type(Pid, BucketType, Timeout, CallTimeout) -&gt; any()</tt></p>
+</div>
+
 <h3 class="function"><a name="search-3">search/3</a></h3>
 <div class="spec">
 <p><tt>search(Pid::pid(), Index::binary(), SearchQuery::binary()) -&gt; {ok, <a href="#type-search_result">search_result()</a>} | {error, term()}</tt><br></p>
@@ -957,6 +972,21 @@
 <p><tt>set_bucket(Pid::pid(), Bucket::<a href="#type-bucket">bucket()</a>, BucketProps::<a href="#type-bucket_props">bucket_props()</a>, Timeout::timeout(), CallTimeout::timeout()) -&gt; ok | {error, term()}</tt><br></p>
 </div><p>Set bucket properties specifying a server side and local call timeout.</p>
 
+<h3 class="function"><a name="set_bucket_type-3">set_bucket_type/3</a></h3>
+<div class="spec">
+<p><tt>set_bucket_type(Pid, BucketType, BucketProps) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="set_bucket_type-4">set_bucket_type/4</a></h3>
+<div class="spec">
+<p><tt>set_bucket_type(Pid, BucketType, BucketProps, Timeout) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="set_bucket_type-5">set_bucket_type/5</a></h3>
+<div class="spec">
+<p><tt>set_bucket_type(Pid, BucketType, BucketProps, Timeout, CallTimeout) -&gt; any()</tt></p>
+</div>
+
 <h3 class="function"><a name="set_client_id-2">set_client_id/2</a></h3>
 <div class="spec">
 <p><tt>set_client_id(Pid::pid(), ClientId::<a href="#type-client_id">client_id()</a>) -&gt; {ok, <a href="#type-client_id">client_id()</a>} | {error, term()}</tt><br></p>
@@ -983,6 +1013,11 @@
 <p><tt>set_options(Pid::pid(), Options::<a href="#type-client_options">client_options()</a>, Timeout::timeout()) -&gt; ok</tt><br></p>
 </div><p>Like set_options/2, but with a gen_server timeout.</p>
 <p><b>See also:</b> <a href="#start_link-3">start_link/3</a>.</p>
+
+<h3 class="function"><a name="set_search_index-3">set_search_index/3</a></h3>
+<div class="spec">
+<p><tt>set_search_index(Pid::pid(), Bucket::<a href="#type-bucket">bucket()</a>, Index::binary()) -&gt; ok | {error, term()}</tt><br></p>
+</div>
 
 <h3 class="function"><a name="start-2">start/2</a></h3>
 <div class="spec">
@@ -1019,7 +1054,12 @@
 
 <h3 class="function"><a name="stream_list_buckets-2">stream_list_buckets/2</a></h3>
 <div class="spec">
-<p><tt>stream_list_buckets(Pid, Timeout) -&gt; any()</tt></p>
+<p><tt>stream_list_buckets(Pid, Type) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="stream_list_buckets-3">stream_list_buckets/3</a></h3>
+<div class="spec">
+<p><tt>stream_list_buckets(Pid, Type, Options) -&gt; any()</tt></p>
 </div>
 
 <h3 class="function"><a name="stream_list_keys-2">stream_list_keys/2</a></h3>
@@ -1047,12 +1087,25 @@
 
 <h3 class="function"><a name="tunnel-4">tunnel/4</a></h3>
 <div class="spec">
-<p><tt>tunnel(Pid::pid(), MsgId::<a href="#type-msg_id">msg_id()</a>, Pkt::binary(), Timeout::timeout()) -&gt; {ok, binary()} | {error, term()}</tt><br></p>
+<p><tt>tunnel(Pid::pid(), MsgId::<a href="#type-msg_id">msg_id()</a>, Pkt::iolist(), Timeout::timeout()) -&gt; {ok, binary()} | {error, term()}</tt><br></p>
 </div><p>Send a pre-encoded msg over the protocol buffer connection
   Returns {ok, Response} or {error, Reason}</p>
+
+<h3 class="function"><a name="update_type-4">update_type/4</a></h3>
+<div class="spec">
+<p><tt>update_type(Pid::pid(), BucketAndType::{BucketType::binary(), Bucket::binary()}, Key::binary(), Update::<a href="riakc_datatype.html#type-update">riakc_datatype:update</a>(term())) -&gt; ok | {ok, Key::binary()} | {ok, <a href="riakc_datatype.html#type-datatype">riakc_datatype:datatype()</a>} | {ok, Key::binary(), <a href="riakc_datatype.html#type-datatype">riakc_datatype:datatype()</a>} | {error, term()}</tt><br></p>
+</div><p>Updates the convergent datatype in Riak with local
+  modifications stored in the container type.</p>
+
+<h3 class="function"><a name="update_type-5">update_type/5</a></h3>
+<div class="spec">
+<p><tt>update_type(Pid::pid(), BucketAndType::{BucketType::binary(), Bucket::binary()}, Key::binary(), Update::<a href="riakc_datatype.html#type-update">riakc_datatype:update</a>(term()), Options::[<a href="proplists.html#type-property">proplists:property()</a>]) -&gt; ok | {ok, Key::binary()} | {ok, <a href="riakc_datatype.html#type-datatype">riakc_datatype:datatype()</a>} | {ok, Key::binary(), <a href="riakc_datatype.html#type-datatype">riakc_datatype:datatype()</a>} | {error, term()}</tt><br></p>
+</div><p>Updates the convergent datatype in Riak with local
+  modifications stored in the container type, using the given request
+  options.</p>
 <hr>
 
 <div class="navbar"><a name="#navbar_bottom"></a><table width="100%" border="0" cellspacing="0" cellpadding="2" summary="navigation bar"><tr><td><a href="overview-summary.html" target="overviewFrame">Overview</a></td><td><a href="http://www.erlang.org/"><img src="erlang.png" align="right" border="0" alt="erlang logo"></a></td></tr></table></div>
-<p><i>Generated by EDoc, Aug 19 2013, 15:57:37.</i></p>
+<p><i>Generated by EDoc, Dec 6 2013, 10:31:07.</i></p>
 </body>
 </html>

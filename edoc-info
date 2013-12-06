@@ -1,3 +1,5 @@
+%% encoding: UTF-8
 {application,riakc}.
 {packages,[]}.
-{modules,[riakc_obj,riakc_pb_socket]}.
+{modules,[riakc_counter,riakc_datatype,riakc_flag,riakc_map,riakc_obj,
+          riakc_pb_socket,riakc_register,riakc_set]}.
