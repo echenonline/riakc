@@ -37,4 +37,3 @@ row_for([], SerializedCells) ->
 row_for([Cell|RemainingCells], SerializedCells) ->
     row_for(RemainingCells,
             [riakc_ts:cell_for(Cell) | SerializedCells]).
-
