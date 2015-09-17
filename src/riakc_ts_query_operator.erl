@@ -19,7 +19,7 @@ serialize_interpolations([], SerializedInterps) ->
     SerializedInterps;
 serialize_interpolations([{Key, Value} | RemainingInterps],
                          SerializedInterps) ->
-    UpdatedInterps = [#rpbpair{key=Key, value=Value} | SerializedInterps],
+    UpdatedInterps = [#tskeycell{key=Key, value=riakc_ts:cell_for(Value)} | SerializedInterps],
     serialize_interpolations(RemainingInterps, UpdatedInterps).
 
 deserialize(Response) ->
