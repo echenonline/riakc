@@ -2263,7 +2263,7 @@ encode_request_message(#request{msg={tunneled,MsgId,Pkt}}=Req) ->
     {Req#request{msg={tunneled,MsgId}},[MsgId|Pkt]};
 %% Unencoded Request (the normal PB client path)
 encode_request_message(#request{msg=Msg}=Req) ->
-    {Req, riak_pb_codec:encode(Msg)}.
+    {Req, term_to_binary(Msg)}.
 
 %% If the socket was closed, see if we can enqueue the request and
 %% trigger a reconnect. Otherwise, return an error to the requestor.
