@@ -1372,7 +1372,8 @@ handle_info({Proto, Sock, Data}, State=#state{sock = Sock, active = Active})
             %% don't decode tunneled replies, we may not recognize the msgid
             {MsgCode, MsgData};
         _ ->
-            riak_pb_codec:decode(MsgCode, MsgData)
+	     {Msg} = binary_to_term(Data),
+	     Msg
     end,
     NewState = case Resp of
         #rpberrorresp{} ->
