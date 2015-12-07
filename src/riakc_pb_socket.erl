@@ -1372,8 +1372,12 @@ handle_info({Proto, Sock, Data}, State=#state{sock = Sock, active = Active})
             %% don't decode tunneled replies, we may not recognize the msgid
             {MsgCode, MsgData};
         _ ->
-	     {Msg} = binary_to_term(Data),
-	     Msg
+	     case binary_to_term(Data) of
+		 {tsputresp} -> 
+		     tsputresp;
+		 Msg ->
+		     Msg
+	     end
     end,
     NewState = case Resp of
         #rpberrorresp{} ->
